@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleIdentifier</key>
+  <string>com.apple.kext.AMD9500Controller</string>
+  <key>kext-patch</key>
+  <dict>
+    <key>match0</key><data>000400000403000000010101000000001102020100000000</data>
+    <key>replace_matched0</key><data>000400000406000000010201000000001102000100000000</data>
+    <key>match1</key><data>000800000402000000010200000000002103050400000000</data>
+    <key>replace_matched1</key><data>000800000402000000710100000000002103000400000000</data>
+    <key>match2</key><data>040000000402000000010300000000000000030500000000</data>
+    <key>replace_matched2</key><data>000000000000000000000000000000000000000000000000</data>
+  </dict>
+</dict>
+</plist>
