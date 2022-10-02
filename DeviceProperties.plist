@@ -6,6 +6,15 @@
         <dict>
             <key>Add</key>
             <dict>
+                <key>#PciRoot(0x0)/Pci(0x7,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x1)</key>
+                <dict>
+                    <key>AAPL,slot-name</key>
+                    <string>Internal@0,7,0/0,0/0,0/0,1</string>
+                    <key>device_type</key>
+                    <string>Audio device</string>
+                    <key>model</key>
+                    <string>Asus HDA</string>
+                </dict>
                 <key>PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)</key>
                 <dict>
                     <key>@0,compatible</key>
@@ -35,55 +44,18 @@
                 </dict>
                 <key>PciRoot(0x0)/Pci(0x7,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
                 <dict>
-                    <key>@0,name</key>
-                    <string>ATY,Acre</string>
-                    <key>@1,name</key>
-                    <string>ATY,Acre</string>
                     <key>AAPL,slot-name</key>
-                    <string>Slot-2</string>
-                    <key>CFG,CFG_FB_LIMIT</key>
-                    <integer>2</integer>
-                    <key>VRAM,totalsize</key>
-                    <data>/////wAAAAA=</data>
+                    <string>Internal@0,7,0/0,0/0,0/0,0</string>
                     <key>compatible</key>
                     <string>pci1002:67ff</string>
                     <key>device-id</key>
                     <data>/2cAAA==</data>
                     <key>device_type</key>
                     <string>VGA compatible controller</string>
-                    <key>framebuffer-con0-enable</key>
-                    <integer>1</integer>
-                    <key>framebuffer-con0-flags</key>
-                    <data>AgQAAA==</data>
-                    <key>framebuffer-con0-index</key>
-                    <data>AQAAAA==</data>
-                    <key>framebuffer-con0-type</key>
-                    <data>AAgAAA==</data>
-                    <key>framebuffer-con1-enable</key>
-                    <integer>1</integer>
-                    <key>framebuffer-con1-flags</key>
-                    <data>BgQAAA==</data>
-                    <key>framebuffer-con1-index</key>
-                    <data>AgAAAA==</data>
-                    <key>framebuffer-con1-type</key>
-                    <data>AAQAAA==</data>
-                    <key>framebuffer-patch-enable</key>
-                    <integer>1</integer>
-                    <key>framebuffer-portcount</key>
-                    <integer>2</integer>
                     <key>model</key>
                     <string>Radeon RX 560X</string>
                     <key>rom-revision</key>
                     <string>Dortania</string>
-                </dict>
-                <key>PciRoot(0x0)/Pci(0x7,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x1)</key>
-                <dict>
-                    <key>AAPL,slot-name</key>
-                    <string>Slot-2</string>
-                    <key>device_type</key>
-                    <string>Audio device</string>
-                    <key>model</key>
-                    <string>Asus HDA</string>
                 </dict>
             </dict>
             <key>Delete</key>
