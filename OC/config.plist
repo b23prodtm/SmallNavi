@@ -31,7 +31,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>DSDT.aml</string>
 			</dict>
@@ -39,7 +39,7 @@
 				<key>Comment</key>
 				<string></string>
 				<key>Enabled</key>
-				<true/>
+				<false/>
 				<key>Path</key>
 				<string>Disable-GPU-Slot1.aml</string>
 			</dict>
@@ -224,14 +224,14 @@
 			</dict>
 			<key>PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)</key>
 			<dict>
+				<key>#disable-gpu</key>
+				<data>AQAAAA==</data>
 				<key>AAPL,slot-name</key>
 				<string>Internal@0,3,0/0,0</string>
 				<key>device_type</key>
 				<string>VGA compatible controller</string>
 				<key>model</key>
 				<string>G96C [GeForce 9500 GT]</string>
-				<key>disable-gpu</key>
-				<data>AQAAAA==</data>
 			</dict>
 		</dict>
 		<key>Delete</key>
@@ -817,7 +817,7 @@
 			<key>ThirdPartyDrives</key>
 			<false/>
 			<key>XhciPortLimit</key>
-			<false/>
+			<true/>
 		</dict>
 		<key>Scheme</key>
 		<dict>
