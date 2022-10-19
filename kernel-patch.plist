@@ -4,14 +4,358 @@
 <dict>
   <key>CFBundleIdentifier</key>
   <string>com.apple.kext.AMD9500Controller</string>
-  <key>kext-patch</key>
-  <dict>
-    <key>match0</key><data>000400000403000000010101000000001102020100000000</data>
-    <key>replace_matched0</key><data>000400000406000000010201000000001102000100000000</data>
-    <key>match1</key><data>000800000402000000010200000000002103050400000000</data>
-    <key>replace_matched1</key><data>000800000402000000710100000000002103000400000000</data>
-    <key>match2</key><data>040000000402000000010300000000000000030500000000</data>
-    <key>replace_matched2</key><data>000000000000000000000000000000000000000000000000</data>
+<//-- Which Framebuffer would I choose to patch?
+All we know is about RX 580 's very close to 6500 XT in Layout and compatible with BigSur
+Framebuffer selection (RX 6500 XT doesn't encode Video):
+The Navi24 only has got 2 ports: 01 is HDMI (0x0008) and 02's DisplayPort (0x0004)
+RX 580 's AMD9500Controller also included built-in (LVDS's laptop) and mostly DP
+MM_EnableHEVCEncode was disabled on the PCI card as it cannot encode with Hardware video in H264
+TODO: We need to grab more information about NAvi24 sockets (redsock_bios_decode < ROM.file:
+
+./redsock_bios_decoder < Navi24_1002_743f.rom
+AS02F.BIN   :
+
+743FHB.20.4.0.28.AS02
+
+Subsystem Vendor ID: 1043
+       Subsystem ID: 5db
+Object Header Structure Size: 72
+Connector Object Table Offset: 2
+Router Object Table Offset: 3113
+Encoder Object Table Offset: 28
+Display Path Table Offset: 0
+Connector Object Id [19] which is [DISPLAY_PORT]
+....
+As of now we can only use the DP for output
+We will reset the connector priority from i to 0 = auto
+--//><dict>
+    <key>Arch</key>
+    <string>x86_64</string>
+    <key>Base</key>
+    <string></string>
+    <key>Comment</key>
+    <string>Foxbox Orinoco Auto Select </string>
+    <key>Count</key>
+    <integer>1</integer>
+    <key>Enabled</key>
+    <true/>
+    <key>Find</key>
+    <data>AAQAAAQDAAAAAQEBAAAAABIEBgEAAAAAAAQAAAQDAAAAAQIBAAAAACIFBAMAAAAAAAgAAAQCAAAAAQMAAAAAABECAQIAAAAAAAgAAAQCAAAAAQQAAAAAACEDBQQAAAAABAAAAAQAAAAAAQUAAAAAAAAAAwYAAAAA</data>
+    <key>Identifier</key>
+    <string>com.apple.kext.AMD9500Controller</string>
+    <key>Limit</key>
+    <integer>0</integer>
+    <key>Mask</key>
+    <data></data>
+    <key>MaxKernel</key>
+    <string>19.0.0</string>
+    <key>MinKernel</key>
+    <string></string>
+    <key>Replace</key>
+    <data>AAQAAAQDAAAAAQABAAAAABIEBgEAAAAAAAQAAAQDAAAAAQABAAAAACIFBAMAAAAAAAQAAAQDAAAAAQABAAAAABECAQIAAAAAAAgAAAQCAAAAAQAAAAAAACEDBQQAAAAABAAAAAQCAAAAAQAAAAAAAAAAAwYAAAAA</data>
+    <key>ReplaceMask</key>
+    <data></data>
+    <key>Skip</key>
+    <integer>0</integer>
+</dict>
+<dict>
+    <key>Arch</key>
+    <string>x86_64</string>
+    <key>Base</key>
+    <string></string>
+    <key>Comment</key>
+    <string>ATY,Berbice Auto Select</string>
+    <key>Count</key>
+    <integer>1</integer>
+    <key>Enabled</key>
+    <true/>
+    <key>Find</key>
+    <data>AgAAAAABAAA5BQEIAAAAACABAQEAAAAAAAQAAAABAAAAAQJDMAAAABAAAgIAAAAAAAQAAAABAAAAAQMTIAAAACEDAwMAAAAAAAQAAAABAAAAAQRTUAAAABECBAQAAAAAAAQAAAABAAAAAQUzQAAAABIEBQUAAAAA</data>
+    <key>Identifier</key>
+    <string>com.apple.kext.AMD9500Controller</string>
+    <key>Limit</key>
+    <integer>0</integer>
+    <key>Mask</key>
+    <data></data>
+    <key>MaxKernel</key>
+    <string>19.0.0</string>
+    <key>MinKernel</key>
+    <string></string>
+    <key>Replace</key>
+    <data>AgAAAAABAAA5BQAIAAAAACABAQEAAAAAAAQAAAABAAAAAQBDMAAAABAAAgIAAAAAAAQAAAABAAAAAQATIAAAACEDAwMAAAAAAAQAAAABAAAAAQBTUAAAABECBAQAAAAAAAQAAAABAAAAAQAzQAAAABIEBQUAAAAA</data>
+    <key>ReplaceMask</key>
+    <data></data>
+    <key>Skip</key>
+    <integer>0</integer>
+</dict>
+<<//-- Berbice (5) @ 0x78aa5
+LVDS, DP, DP, DP, DP
+---------------------0--------------------------
+020000000001000039050108000000002001010100000000
+000400000001000000010243300000001000020200000000
+000400000001000000010313200000002103030300000000
+000400000001000000010453500000001102040400000000
+000400000001000000010533400000001204050500000000
+--//>
+    <dict>
+      <key>Arch</key>
+      <string>x86_64</string>
+      <key>Base</key>
+      <string></string>
+      <key>Comment</key>
+      <string>ATY,Berbice Patched Framebuffer</string>
+      <key>Count</key>
+      <integer>0</integer>
+      <key>Enabled</key>
+      <true/>
+      <key>Find</key>
+      <string>020000000001000039050108000000002001010100000000000400000001000000010243300000001000020200000000000400000001000000010313200000002103030300000000000400000001000000010453500000001102040400000000000400000001000000010533400000001204050500000000</string>
+      <key>Identifier</key>
+      <string>com.apple.kext.AMD9500Controller</string>
+      <key>Limit</key>
+      <integer>0</integer>
+      <key>Mask</key>
+      <data></data>
+      <key>MaxKernel</key>
+      <string>19.0.0</string>
+      <key>MinKernel</key>
+      <string></string>
+      <key>Replace</key>
+      <string>020000000001000039050008000000002001010100000000000400000001000000010043300000001000020200000000000400000001000000010013200000002103030300000000000400000001000000010053500000001102040400000000000400000001000000010033400000001204050500000000</string>
+      <key>ReplaceMask</key>
+      <data></data>
+      <key>Skip</key>
+      <integer>0</integer>
+  </dict>
+<//-- Caroni (5) @ 0x78d15
+LVDS, LVDS, DP, DP, DP
+020000000001000000010141200000001102020400000000
+020000000001000000010231110000002103010300000000
+000400000001000000010313500000002001030100000000
+000400000001000000010413500000001204040200000000
+000400000001000000010501000000001000050500000000
+--//>
+    <dict>
+      <key>Arch</key>
+      <string>x86_64</string>
+      <key>Base</key>
+      <string></string>
+      <key>Comment</key>
+      <string>ATY,Caroni Patched Framebuffer</string>
+      <key>Count</key>
+      <integer>0</integer>
+      <key>Enabled</key>
+      <true/>
+      <key>Find</key>
+      <string>020000000001000000010141200000001102020400000000020000000001000000010231110000002103010300000000000400000001000000010313500000002001030100000000000400000001000000010413500000001204040200000000000400000001000000010501000000001000050500000000</string>
+      <key>Identifier</key>
+      <string>com.apple.kext.AMD9500Controller</string>
+      <key>Limit</key>
+      <integer>0</integer>
+      <key>Mask</key>
+      <data></data>
+      <key>MaxKernel</key>
+      <string>19.0.0</string>
+      <key>MinKernel</key>
+      <string></string>
+      <key>Replace</key>
+      <string>020000000001000000010041200000001102020400000000020000000001000000010031110000002103010300000000000400000001000000010013500000002001030100000000000400000001000000010013500000001204040200000000000400000001000000010001000000001000050500000000</string>
+      <key>ReplaceMask</key>
+      <data></data>
+      <key>Skip</key>
+      <integer>0</integer>
+  </dict>
+<//-- Florin (6) @ 0x78745
+LVDS, LVDS, DP, DP, DP, DP
+020000000001000000010141200000001102020400000000
+020000000001000000010231110000002103010300000000
+000400000001000000010313400000002001030100000000
+000400000001000000010421300000001000050500000000
+000400000001000000010553600000002205040200000000
+000400000001000000010661500000001204060600000000
+--//>
+    <dict>
+      <key>Arch</key>
+      <string>x86_64</string>
+      <key>Base</key>
+      <string></string>
+      <key>Comment</key>
+      <string>ATY,Florin Patched Framebuffer</string>
+      <key>Count</key>
+      <integer>0</integer>
+      <key>Enabled</key>
+      <true/>
+      <key>Find</key>
+      <string>020000000001000000010141200000001102020400000000020000000001000000010231110000002103010300000000000400000001000000010313400000002001030100000000000400000001000000010421300000001000050500000000000400000001000000010553600000002205040200000000000400000001000000010661500000001204060600000000</string>
+      <key>Identifier</key>
+      <string>com.apple.kext.AMD9500Controller</string>
+      <key>Limit</key>
+      <integer>0</integer>
+      <key>Mask</key>
+      <data></data>
+      <key>MaxKernel</key>
+      <string>19.0.0</string>
+      <key>MinKernel</key>
+      <string></string>
+      <key>Replace</key>
+      <string>020000000001000000010041200000001102020400000000020000000001000000010031110000002103010300000000000400000001000000010013400000002001030100000000000400000001000000010021300000001000050500000000000400000001000000010053600000002205040200000000000400000001000000010061500000001204060600000000</string>
+      <key>ReplaceMask</key>
+      <data></data>
+      <key>Skip</key>
+      <integer>0</integer>
+  </dict>
+<//-- Longavi (5) @ 0x78b25
+LVDS, DP, DP, DP, DP
+020000000001000039050108000000002001010100000000
+000400000001000000010243300000001000020200000000
+000400000001000000010313200000002103030300000000
+000400000001000000010453500000001102040400000000
+000400000001000000010533400000001204050500000000
+--//>
+    <dict>
+      <key>Arch</key>
+      <string>x86_64</string>
+      <key>Base</key>
+      <string></string>
+      <key>Comment</key>
+      <string>ATY,Longavi Patched Framebuffer</string>
+      <key>Count</key>
+      <integer>0</integer>
+      <key>Enabled</key>
+      <true/>
+      <key>Find</key>
+      <string>020000000001000039050108000000002001010100000000000400000001000000010243300000001000020200000000000400000001000000010313200000002103030300000000000400000001000000010453500000001102040400000000000400000001000000010533400000001204050500000000</string>
+      <key>Identifier</key>
+      <string>com.apple.kext.AMD9500Controller</string>
+      <key>Limit</key>
+      <integer>0</integer>
+      <key>Mask</key>
+      <data></data>
+      <key>MaxKernel</key>
+      <string>19.0.0</string>
+      <key>MinKernel</key>
+      <string></string>
+      <key>Replace</key>
+      <string>020000000001000039050008000000002001010100000000000400000001000000010043300000001000020200000000000400000001000000010013200000002103030300000000000400000001000000010053500000001102040400000000000400000001000000010033400000001204050500000000</string>
+      <key>ReplaceMask</key>
+      <data></data>
+      <key>Skip</key>
+      <integer>0</integer>
+  </dict>
+<//-- Palena (5) @ 0x78c95
+LVDS, DP, DP, DP, DP
+020000000001000039050108000000002001010100000000
+000400000001000000010243300000001000020200000000
+000400000001000000010313200000002103030300000000
+000400000001000000010453500000001102040400000000
+000400000001000000010533400000001204050500000000
+--//>
+    <dict>
+      <key>Arch</key>
+      <string>x86_64</string>
+      <key>Base</key>
+      <string></string>
+      <key>Comment</key>
+      <string>ATY,Palena Patched Framebuffer</string>
+      <key>Count</key>
+      <integer>0</integer>
+      <key>Enabled</key>
+      <true/>
+      <key>Find</key>
+      <string>020000000001000039050108000000002001010100000000000400000001000000010243300000001000020200000000000400000001000000010313200000002103030300000000000400000001000000010453500000001102040400000000000400000001000000010533400000001204050500000000</string>
+      <key>Identifier</key>
+      <string>com.apple.kext.AMD9500Controller</string>
+      <key>Limit</key>
+      <integer>0</integer>
+      <key>Mask</key>
+      <data></data>
+      <key>MaxKernel</key>
+      <string>19.0.0</string>
+      <key>MinKernel</key>
+      <string></string>
+      <key>Replace</key>
+      <string>020000000001000039050008000000002001010100000000000400000001000000010043300000001000020200000000000400000001000000010013200000002103030300000000000400000001000000010053500000001102040400000000000400000001000000010033400000001204050500000000</string>
+      <key>ReplaceMask</key>
+      <data></data>
+      <key>Skip</key>
+      <integer>0</integer>
+  </dict>
+<//-- Sinu (6) @ 0x78855
+LVDS, LVDS, DP, DP, DP, DP
+020000000001000000010141200000001102020400000000
+020000000001000000010231110000002103010300000000
+000400000001000000010313400000002001030100000000
+000400000001000000010421300000001000050500000000
+000400000001000000010553600000002205040200000000
+000400000001000000010661500000001204060600000000
+--//>
+    <dict>
+      <key>Arch</key>
+      <string>x86_64</string>
+      <key>Base</key>
+      <string></string>
+      <key>Comment</key>
+      <string>ATY,Sinu Patched Framebuffer</string>
+      <key>Count</key>
+      <integer>0</integer>
+      <key>Enabled</key>
+      <true/>
+      <key>Find</key>
+      <string>020000000001000000010141200000001102020400000000020000000001000000010231110000002103010300000000000400000001000000010313400000002001030100000000000400000001000000010421300000001000050500000000000400000001000000010553600000002205040200000000000400000001000000010661500000001204060600000000</string>
+      <key>Identifier</key>
+      <string>com.apple.kext.AMD9500Controller</string>
+      <key>Limit</key>
+      <integer>0</integer>
+      <key>Mask</key>
+      <data></data>
+      <key>MaxKernel</key>
+      <string>19.0.0</string>
+      <key>MinKernel</key>
+      <string></string>
+      <key>Replace</key>
+      <string>020000000001000000010041200000001102020400000000020000000001000000010031110000002103010300000000000400000001000000010013400000002001030100000000000400000001000000010021300000001000050500000000000400000001000000010053600000002205040200000000000400000001000000010061500000001204060600000000</string>
+      <key>ReplaceMask</key>
+      <data></data>
+      <key>Skip</key>
+      <integer>0</integer>
+  </dict>
+<//-- Tolten (5) @ 0x78c15
+LVDS, LVDS, DP, DP, DP
+020000000001000000010141200000001102020400000000
+020000000001000000010231110000002103010300000000
+000400000001000000010313500000002001030100000000
+000400000001000000010413500000001204040200000000
+000400000001000000010501000000001000050500000000
+-->
+    <dict>
+      <key>Arch</key>
+      <string>x86_64</string>
+      <key>Base</key>
+      <string></string>
+      <key>Comment</key>
+      <string>ATY,Tolten Patched Framebuffer</string>
+      <key>Count</key>
+      <integer>0</integer>
+      <key>Enabled</key>
+      <true/>
+      <key>Find</key>
+      <string>020000000001000000010141200000001102020400000000020000000001000000010231110000002103010300000000000400000001000000010313500000002001030100000000000400000001000000010413500000001204040200000000000400000001000000010501000000001000050500000000</string>
+      <key>Identifier</key>
+      <string>com.apple.kext.AMD9500Controller</string>
+      <key>Limit</key>
+      <integer>0</integer>
+      <key>Mask</key>
+      <data></data>
+      <key>MaxKernel</key>
+      <string>19.0.0</string>
+      <key>MinKernel</key>
+      <string></string>
+      <key>Replace</key>
+      <string>020000000001000000010041200000001102020400000000020000000001000000010031110000002103010300000000000400000001000000010013500000002001030100000000000400000001000000010013500000001204040200000000000400000001000000010001000000001000050500000000</string>
+      <key>ReplaceMask</key>
+      <data></data>
+      <key>Skip</key>
+      <integer>0</integer>
   </dict>
 </dict>
 </plist>

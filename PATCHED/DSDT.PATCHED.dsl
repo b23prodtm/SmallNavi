@@ -1,63 +1,61 @@
 /*
  * Intel ACPI Component Architecture
- * AML/ASL+ Disassembler version 20180427 (64-bit version)(RM)
- * Copyright (c) 2000 - 2018 Intel Corporation
+ * AML/ASL+ Disassembler version 20200925 (64-bit version)
+ * Copyright (c) 2000 - 2020 Intel Corporation
  * 
- * Disassembling to non-symbolic legacy ASL operators
+ * Disassembling to symbolic ASL+ operators
  *
- * Disassembly of DSDT.aml, Wed Sep 28 22:05:54 2022
+ * Disassembly of iASLgVQ8Cj.aml, Wed Oct 19 02:01:49 2022
  *
  * Original Table Header:
  *     Signature        "DSDT"
- *     Length           0x00003EE3 (16099)
+ *     Length           0x000044F9 (17657)
  *     Revision         0x01 **** 32-bit table (V1), no 64-bit math support
- *     Checksum         0xC0
+ *     Checksum         0x4A
  *     OEM ID           "APPLE "
  *     OEM Table ID     "Apple00"
  *     OEM Revision     0x00050001 (327681)
- *     Compiler ID      "Loki"
- *     Compiler Version 0x0000005F (95)
+ *     Compiler ID      "INTL"
+ *     Compiler Version 0x20200925 (538970405)
  */
 DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 {
-    External (_SB_.PCI0.IOU0, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCI0.IOU0.PSP8, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCI0.IOU0.PXS1, DeviceObj)    // Warning: Unknown object
-    External (_SB_.PCI0.IOU0.PSP8, UnknownObj)    // Warning: Unknown object
+    External (_SB_.PCI0.IOU0, UnknownObj)
+    External (_SB_.PCI0.IOU0.PSP8, UnknownObj)
+    External (_SB_.PCI0.IOU0.PXS1, DeviceObj)
     External (_SB_.PCI0.IOU1, DeviceObj)
     External (_SB_.PCI0.IOU1.PSP7, UnknownObj)
     External (_SB_.PCI0.IOU1.PXS2, DeviceObj)
-    External (_SB_.PCI0.IOU1.PXS2.PEGP, DeviceObj)
+    External (_SB_.PCI0.IOU2.I2PS.PPB2, UnknownObj)
+    External (_SB_.PCI0.IOU2.I2PS.PPB2.PXS3, DeviceObj)
+    External (_SB_.PCI0.IOU2.I2PS.PPB4, UnknownObj)
+    External (_SB_.PCI0.IOU2.I2PS.PPB4.PXS4, DeviceObj)
+    External (_SB_.PCI0.IOU2.PSP9, UnknownObj)
     External (OSDW, MethodObj)    // 0 Arguments
-    External (_SB_.PCI0.IOU2.I2PS.PPB2, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCI0.IOU2.I2PS.PPB2.PXS3, DeviceObj)    // Warning: Unknown object
-    External (_SB_.PCI0.IOU2.I2PS.PPB4, UnknownObj)    // Warning: Unknown object
-    External (_SB_.PCI0.IOU2.I2PS.PPB4.PXS4, DeviceObj)    // Warning: Unknown object
-    External (_SB_.PCI0.IOU2.PSP9, UnknownObj)    // Warning: Unknown object
-    External (PDC0, UnknownObj)    // Warning: Unknown object
-    External (PDC1, UnknownObj)    // Warning: Unknown object
-    External (PDC2, UnknownObj)    // Warning: Unknown object
-    External (PDC3, UnknownObj)    // Warning: Unknown object
-    External (PDC4, UnknownObj)    // Warning: Unknown object
-    External (PDC5, UnknownObj)    // Warning: Unknown object
-    External (PDC6, UnknownObj)    // Warning: Unknown object
-    External (PDC7, UnknownObj)    // Warning: Unknown object
-    External (PDC8, UnknownObj)    // Warning: Unknown object
-    External (PDC9, UnknownObj)    // Warning: Unknown object
-    External (PDCA, UnknownObj)    // Warning: Unknown object
-    External (PDCB, UnknownObj)    // Warning: Unknown object
-    External (PDCC, UnknownObj)    // Warning: Unknown object
-    External (PDCD, UnknownObj)    // Warning: Unknown object
-    External (PDCE, UnknownObj)    // Warning: Unknown object
-    External (PDCF, UnknownObj)    // Warning: Unknown object
-    External (PDCG, UnknownObj)    // Warning: Unknown object
-    External (PDCH, UnknownObj)    // Warning: Unknown object
-    External (PDCI, UnknownObj)    // Warning: Unknown object
-    External (PDCJ, UnknownObj)    // Warning: Unknown object
-    External (PDCK, UnknownObj)    // Warning: Unknown object
-    External (PDCL, UnknownObj)    // Warning: Unknown object
-    External (PDCM, UnknownObj)    // Warning: Unknown object
-    External (PDCN, UnknownObj)    // Warning: Unknown object
+    External (PDC0, UnknownObj)
+    External (PDC1, UnknownObj)
+    External (PDC2, UnknownObj)
+    External (PDC3, UnknownObj)
+    External (PDC4, UnknownObj)
+    External (PDC5, UnknownObj)
+    External (PDC6, UnknownObj)
+    External (PDC7, UnknownObj)
+    External (PDC8, UnknownObj)
+    External (PDC9, UnknownObj)
+    External (PDCA, UnknownObj)
+    External (PDCB, UnknownObj)
+    External (PDCC, UnknownObj)
+    External (PDCD, UnknownObj)
+    External (PDCE, UnknownObj)
+    External (PDCF, UnknownObj)
+    External (PDCG, UnknownObj)
+    External (PDCH, UnknownObj)
+    External (PDCI, UnknownObj)
+    External (PDCJ, UnknownObj)
+    External (PDCK, UnknownObj)
+    External (PDCL, UnknownObj)
+    External (PDCM, UnknownObj)
+    External (PDCN, UnknownObj)
 
     OperationRegion (PRT0, SystemIO, 0x80, 0x04)
     Field (PRT0, DWordAcc, Lock, Preserve)
@@ -345,7 +343,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
     }
 
     Mutex (MUTX, 0x00)
-    Scope (\_PR)
+    Scope (_PR)
     {
         Processor (CPU0, 0x00, 0x00000410, 0x06){}
         Processor (CPU1, 0x01, 0x00000410, 0x06){}
@@ -391,21 +389,21 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
         TSEN,   1
     }
 
-    Name (\DSEN, 0x01)
-    Name (\ECON, 0x00)
-    Name (\GPIC, 0x00)
-    Name (\CTYP, 0x00)
-    Name (\VFN0, 0x00)
-    Name (\TSTE, 0x00)
+    Name (DSEN, One)
+    Name (ECON, Zero)
+    Name (GPIC, Zero)
+    Name (CTYP, Zero)
+    Name (VFN0, Zero)
+    Name (TSTE, Zero)
     Method (OSDW, 0, NotSerialized)
     {
-        If (LEqual (OSYS, 0x2710))
+        If ((OSYS == 0x2710))
         {
-            Return (0x01)
+            Return (One)
         }
         Else
         {
-            Return (0x00)
+            Return (Zero)
         }
     }
 
@@ -415,129 +413,129 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
         {
             If (_OSI ("Darwin"))
             {
-                Store (0x2710, OSYS)
+                OSYS = 0x2710
             }
             ElseIf (_OSI ("Linux"))
             {
-                Store (0x03E8, OSYS)
+                OSYS = 0x03E8
             }
             ElseIf (_OSI ("Windows 2001"))
             {
-                Store (0x07D1, OSYS)
+                OSYS = 0x07D1
             }
             ElseIf (_OSI ("Windows 2001 SP1"))
             {
-                Store (0x07D1, OSYS)
+                OSYS = 0x07D1
             }
             ElseIf (_OSI ("Windows 2001 SP2"))
             {
-                Store (0x07D2, OSYS)
+                OSYS = 0x07D2
             }
             ElseIf (_OSI ("Windows 2006"))
             {
-                Store (0x07D6, OSYS)
+                OSYS = 0x07D6
             }
             ElseIf (_OSI ("Windows 2007"))
             {
-                Store (0x07D7, OSYS)
+                OSYS = 0x07D7
             }
             ElseIf (_OSI ("Windows 2008"))
             {
-                Store (0x07D8, OSYS)
+                OSYS = 0x07D8
             }
         }
         Else
         {
-            Store (0x07D0, OSYS)
+            OSYS = 0x07D0
         }
     }
 
-    Method (\_PIC, 1, NotSerialized)  // _PIC: Interrupt Model
+    Method (_PIC, 1, NotSerialized)  // _PIC: Interrupt Model
     {
-        Store (Arg0, GPIC)
+        GPIC = Arg0
     }
 
     Method (DTGP, 5, NotSerialized)
     {
-        If (LEqual (Arg0, ToUUID ("a0b5b7c6-1318-441c-b0c9-fe695eaf949b")))
+        If ((Arg0 == ToUUID ("a0b5b7c6-1318-441c-b0c9-fe695eaf949b") /* Unknown UUID */))
         {
-            If (LEqual (Arg1, One))
+            If ((Arg1 == One))
             {
-                If (LEqual (Arg2, Zero))
+                If ((Arg2 == Zero))
                 {
-                    Store (Buffer (0x01)
+                    Arg4 = Buffer (One)
                         {
-                             0x03                                           
-                        }, Arg4)
+                             0x03                                             // .
+                        }
                     Return (One)
                 }
 
-                If (LEqual (Arg2, One))
+                If ((Arg2 == One))
                 {
                     Return (One)
                 }
             }
         }
 
-        Store (Buffer (0x01)
+        Arg4 = Buffer (One)
             {
-                 0x00                                           
-            }, Arg4)
+                 0x00                                             // .
+            }
         Return (Zero)
     }
 
     Name (_S0, Package (0x04)  // _S0_: S0 System State
     {
-        0x00, 
-        0x00, 
-        0x00, 
-        0x00
+        Zero, 
+        Zero, 
+        Zero, 
+        Zero
     })
     Name (_S1, Package (0x04)  // _S1_: S1 System State
     {
-        0x01, 
-        0x00, 
-        0x00, 
-        0x00
+        One, 
+        Zero, 
+        Zero, 
+        Zero
     })
     Name (_S3, Package (0x04)  // _S3_: S3 System State
     {
         0x05, 
         0x05, 
-        0x00, 
-        0x00
+        Zero, 
+        Zero
     })
     Name (_S4, Package (0x04)  // _S4_: S4 System State
     {
         0x06, 
         0x06, 
-        0x00, 
-        0x00
+        Zero, 
+        Zero
     })
     Name (_S5, Package (0x04)  // _S5_: S5 System State
     {
         0x07, 
         0x07, 
-        0x00, 
-        0x00
+        Zero, 
+        Zero
     })
     Method (G3HT, 0, NotSerialized)
     {
-        If (LOr (LEqual (RTEE, 0x01), LEqual (\_SB.PCI0.LPCB.AG3E, 0x00)))
+        If (((RTEE == One) || (\_SB.PCI0.LPCB.AG3E == Zero)))
         {
-            Store (0x00, \_SB.PCI0.LPCB.EC.G3HT)
+            \_SB.PCI0.LPCB.EC.G3HT = Zero
         }
         Else
         {
-            Store (0x01, \_SB.PCI0.LPCB.EC.G3HT)
+            \_SB.PCI0.LPCB.EC.G3HT = One
         }
     }
 
     Method (_PTS, 1, NotSerialized)  // _PTS: Prepare To Sleep
     {
-        Store (0x00, P80D)
-        P8XH (0x00, Arg0)
-        Store (Arg0, \_SB.PCI0.LPCB.EC.ECSS)
+        P80D = Zero
+        P8XH (Zero, Arg0)
+        \_SB.PCI0.LPCB.EC.ECSS = Arg0
         G3HT ()
         If (OSDW ())
         {
@@ -547,435 +545,435 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
     Method (_WAK, 1, NotSerialized)  // _WAK: Wake
     {
-        P8XH (0x00, 0x00)
-        Store (0x00, \_SB.PCI0.LPCB.EC.ECSS)
+        P8XH (Zero, Zero)
+        \_SB.PCI0.LPCB.EC.ECSS = Zero
         If (OSDW ())
         {
             \_SB.PCI0.SBUS.ENAB ()
         }
 
         PNOT ()
-        Notify (\_SB.PCI0.UHC1, 0x00)
-        Notify (\_SB.PCI0.UHC2, 0x00)
-        Notify (\_SB.PCI0.UHC3, 0x00)
-        Notify (\_SB.PCI0.UHC4, 0x00)
-        Notify (\_SB.PCI0.UHC5, 0x00)
-        Notify (\_SB.PCI0.UHC6, 0x00)
-        Notify (\_SB.PCI0.EHC1, 0x00)
-        Notify (\_SB.PCI0.EHC2, 0x00)
+        Notify (\_SB.PCI0.UHC1, Zero) // Bus Check
+        Notify (\_SB.PCI0.UHC2, Zero) // Bus Check
+        Notify (\_SB.PCI0.UHC3, Zero) // Bus Check
+        Notify (\_SB.PCI0.UHC4, Zero) // Bus Check
+        Notify (\_SB.PCI0.UHC5, Zero) // Bus Check
+        Notify (\_SB.PCI0.UHC6, Zero) // Bus Check
+        Notify (\_SB.PCI0.EHC1, Zero) // Bus Check
+        Notify (\_SB.PCI0.EHC2, Zero) // Bus Check
         Return (Package (0x02)
         {
-            0x00, 
-            0x00
+            Zero, 
+            Zero
         })
     }
 
-    Scope (\_GPE)
+    Scope (_GPE)
     {
-        Method (_L02, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L02, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Store (0x00, GPEC)
+            GPEC = Zero
         }
 
-        Method (_L03, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L03, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Notify (\_SB.PCI0.UHC1, 0x02)
-            Notify (\_SB.PWRB, 0x02)
+            Notify (\_SB.PCI0.UHC1, 0x02) // Device Wake
+            Notify (\_SB.PWRB, 0x02) // Device Wake
         }
 
-        Method (_L04, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L04, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Notify (\_SB.PCI0.UHC2, 0x02)
-            Notify (\_SB.PWRB, 0x02)
+            Notify (\_SB.PCI0.UHC2, 0x02) // Device Wake
+            Notify (\_SB.PWRB, 0x02) // Device Wake
         }
 
-        Method (_L0C, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L0C, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Notify (\_SB.PCI0.UHC3, 0x02)
-            Notify (\_SB.PWRB, 0x02)
+            Notify (\_SB.PCI0.UHC3, 0x02) // Device Wake
+            Notify (\_SB.PWRB, 0x02) // Device Wake
         }
 
-        Method (_L0E, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L0E, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Notify (\_SB.PCI0.UHC4, 0x02)
-            Notify (\_SB.PWRB, 0x02)
+            Notify (\_SB.PCI0.UHC4, 0x02) // Device Wake
+            Notify (\_SB.PWRB, 0x02) // Device Wake
         }
 
-        Method (_L05, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L05, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Notify (\_SB.PCI0.UHC5, 0x02)
-            Notify (\_SB.PWRB, 0x02)
+            Notify (\_SB.PCI0.UHC5, 0x02) // Device Wake
+            Notify (\_SB.PWRB, 0x02) // Device Wake
         }
 
-        Method (_L20, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L20, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Notify (\_SB.PCI0.UHC6, 0x02)
-            Notify (\_SB.PWRB, 0x02)
+            Notify (\_SB.PCI0.UHC6, 0x02) // Device Wake
+            Notify (\_SB.PWRB, 0x02) // Device Wake
         }
 
-        Method (_L07, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L07, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Store (0x20, \_SB.PCI0.SBUS.HSTS)
+            \_SB.PCI0.SBUS.HSTS = 0x20
         }
 
-        Method (_L09, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L09, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
             If (\_SB.PCI0.RP03.PSP3)
             {
-                Store (0x01, \_SB.PCI0.RP03.PSP3)
-                Store (0x01, \_SB.PCI0.RP03.PMS3)
-                Notify (\_SB.PCI0.RP03, 0x02)
+                \_SB.PCI0.RP03.PSP3 = One
+                \_SB.PCI0.RP03.PMS3 = One
+                Notify (\_SB.PCI0.RP03, 0x02) // Device Wake
             }
 
             If (\_SB.PCI0.RP04.PSP4)
             {
-                Store (0x01, \_SB.PCI0.RP04.PSP4)
-                Store (0x01, \_SB.PCI0.RP04.PMS4)
-                Notify (\_SB.PCI0.RP04, 0x02)
+                \_SB.PCI0.RP04.PSP4 = One
+                \_SB.PCI0.RP04.PMS4 = One
+                Notify (\_SB.PCI0.RP04, 0x02) // Device Wake
             }
 
             If (\_SB.PCI0.RP05.PSP5)
             {
-                Store (0x01, \_SB.PCI0.RP05.PSP5)
-                Store (0x01, \_SB.PCI0.RP05.PMS5)
-                Notify (\_SB.PCI0.RP05, 0x02)
+                \_SB.PCI0.RP05.PSP5 = One
+                \_SB.PCI0.RP05.PMS5 = One
+                Notify (\_SB.PCI0.RP05, 0x02) // Device Wake
             }
 
             If (\_SB.PCI0.RP06.PSP6)
             {
-                Store (0x01, \_SB.PCI0.RP06.PSP6)
-                Store (0x01, \_SB.PCI0.RP06.PMS6)
-                Notify (\_SB.PCI0.RP06, 0x02)
+                \_SB.PCI0.RP06.PSP6 = One
+                \_SB.PCI0.RP06.PMS6 = One
+                Notify (\_SB.PCI0.RP06, 0x02) // Device Wake
             }
 
             If (\_SB.PCI0.IOU0.PXS1)
             {
-                Store (0x01, \_SB.PCI0.IOU0.PSP8)
-                Notify (\_SB.PCI0.IOU0, 0x02)
+                \_SB.PCI0.IOU0.PSP8 = One
+                Notify (\_SB.PCI0.IOU0, 0x02) // Device Wake
             }
-    
+
             If (\_SB.PCI0.IOU2.I2PS.PPB2.PXS3)
             {
-                Store (0x01, \_SB.PCI0.IOU2.PSP9)
-                Notify (\_SB.PCI0.IOU2.I2PS.PPB2, 0x02)
+                \_SB.PCI0.IOU2.PSP9 = One
+                Notify (\_SB.PCI0.IOU2.I2PS.PPB2, 0x02) // Device Wake
             }
 
             If (\_SB.PCI0.IOU2.I2PS.PPB4.PXS4)
             {
-                Store (0x01, \_SB.PCI0.IOU2.PSP9)
-                Notify (\_SB.PCI0.IOU2.I2PS.PPB4, 0x02)
+                \_SB.PCI0.IOU2.PSP9 = One
+                Notify (\_SB.PCI0.IOU2.I2PS.PPB4, 0x02) // Device Wake
             }
 
-            Notify (\_SB.PWRB, 0x02)
+            Notify (\_SB.PWRB, 0x02) // Device Wake
         }
 
-        Method (_L0D, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L0D, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
             If (\_SB.PCI0.EHC1.PMES)
             {
-                Store (0x01, \_SB.PCI0.EHC1.PMES)
-                Notify (\_SB.PCI0.EHC1, 0x02)
-                Notify (\_SB.PWRB, 0x02)
+                \_SB.PCI0.EHC1.PMES = One
+                Notify (\_SB.PCI0.EHC1, 0x02) // Device Wake
+                Notify (\_SB.PWRB, 0x02) // Device Wake
             }
 
             If (\_SB.PCI0.EHC2.PMES)
             {
-                Store (0x01, \_SB.PCI0.EHC2.PMES)
-                Notify (\_SB.PCI0.EHC2, 0x02)
-                Notify (\_SB.PWRB, 0x02)
+                \_SB.PCI0.EHC2.PMES = One
+                Notify (\_SB.PCI0.EHC2, 0x02) // Device Wake
+                Notify (\_SB.PWRB, 0x02) // Device Wake
             }
 
             If (\_SB.PCI0.HDEF.PMES)
             {
-                Store (0x01, \_SB.PCI0.HDEF.PMES)
-                Notify (\_SB.PCI0.HDEF, 0x02)
+                \_SB.PCI0.HDEF.PMES = One
+                Notify (\_SB.PCI0.HDEF, 0x02) // Device Wake
             }
         }
 
-        Method (_L1A, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+        Method (_L1A, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
         {
-            Notify (\_SB.PCI0.RP05.FWBR.FRWR, 0x00)
+            Notify (\_SB.PCI0.RP05.FWBR.FRWR, Zero) // Bus Check
         }
     }
 
     Method (P8XH, 2, Serialized)
     {
-        If (LEqual (Arg0, 0x00))
+        If ((Arg0 == Zero))
         {
-            Store (Or (And (P80D, 0xFFFFFF00), Arg1), P80D)
+            P80D = ((P80D & 0xFFFFFF00) | Arg1)
         }
 
-        If (LEqual (Arg0, 0x01))
+        If ((Arg0 == One))
         {
-            Store (Or (And (P80D, 0xFFFF00FF), ShiftLeft (Arg1, 0x08)), P80D)
+            P80D = ((P80D & 0xFFFF00FF) | (Arg1 << 0x08))
         }
 
-        If (LEqual (Arg0, 0x02))
+        If ((Arg0 == 0x02))
         {
-            Store (Or (And (P80D, 0xFF00FFFF), ShiftLeft (Arg1, 0x10)), P80D)
+            P80D = ((P80D & 0xFF00FFFF) | (Arg1 << 0x10))
         }
 
-        If (LEqual (Arg0, 0x03))
+        If ((Arg0 == 0x03))
         {
-            Store (Or (And (P80D, 0x00FFFFFF), ShiftLeft (Arg1, 0x18)), P80D)
+            P80D = ((P80D & 0x00FFFFFF) | (Arg1 << 0x18))
         }
 
-        Store (P80D, P80H)
+        P80H = P80D /* \P80D */
     }
 
     Method (PNOT, 0, Serialized)
     {
         If (MPEN)
         {
-            If (And (PDC0, 0x08))
+            If ((PDC0 & 0x08))
             {
-                Notify (\_PR.CPU0, 0x80)
-                If (And (PDC0, 0x10))
+                Notify (\_PR.CPU0, 0x80) // Performance Capability Change
+                If ((PDC0 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU0, 0x81)
+                    Notify (\_PR.CPU0, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC1, 0x08))
+            If ((PDC1 & 0x08))
             {
-                Notify (\_PR.CPU1, 0x80)
-                If (And (PDC1, 0x10))
+                Notify (\_PR.CPU1, 0x80) // Performance Capability Change
+                If ((PDC1 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU1, 0x81)
+                    Notify (\_PR.CPU1, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC2, 0x08))
+            If ((PDC2 & 0x08))
             {
-                Notify (\_PR.CPU2, 0x80)
-                If (And (PDC2, 0x10))
+                Notify (\_PR.CPU2, 0x80) // Performance Capability Change
+                If ((PDC2 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU2, 0x81)
+                    Notify (\_PR.CPU2, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC3, 0x08))
+            If ((PDC3 & 0x08))
             {
-                Notify (\_PR.CPU3, 0x80)
-                If (And (PDC3, 0x10))
+                Notify (\_PR.CPU3, 0x80) // Performance Capability Change
+                If ((PDC3 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU3, 0x81)
+                    Notify (\_PR.CPU3, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC4, 0x08))
+            If ((PDC4 & 0x08))
             {
-                Notify (\_PR.CPU4, 0x80)
-                If (And (PDC4, 0x10))
+                Notify (\_PR.CPU4, 0x80) // Performance Capability Change
+                If ((PDC4 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU4, 0x81)
+                    Notify (\_PR.CPU4, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC5, 0x08))
+            If ((PDC5 & 0x08))
             {
-                Notify (\_PR.CPU5, 0x80)
-                If (And (PDC5, 0x10))
+                Notify (\_PR.CPU5, 0x80) // Performance Capability Change
+                If ((PDC5 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU5, 0x81)
+                    Notify (\_PR.CPU5, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC6, 0x08))
+            If ((PDC6 & 0x08))
             {
-                Notify (\_PR.CPU6, 0x80)
-                If (And (PDC6, 0x10))
+                Notify (\_PR.CPU6, 0x80) // Performance Capability Change
+                If ((PDC6 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU6, 0x81)
+                    Notify (\_PR.CPU6, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC7, 0x08))
+            If ((PDC7 & 0x08))
             {
-                Notify (\_PR.CPU7, 0x80)
-                If (And (PDC7, 0x10))
+                Notify (\_PR.CPU7, 0x80) // Performance Capability Change
+                If ((PDC7 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU7, 0x81)
+                    Notify (\_PR.CPU7, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC8, 0x08))
+            If ((PDC8 & 0x08))
             {
-                Notify (\_PR.CPU8, 0x80)
-                If (And (PDC8, 0x10))
+                Notify (\_PR.CPU8, 0x80) // Performance Capability Change
+                If ((PDC8 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU8, 0x81)
+                    Notify (\_PR.CPU8, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDC9, 0x08))
+            If ((PDC9 & 0x08))
             {
-                Notify (\_PR.CPU9, 0x80)
-                If (And (PDC9, 0x10))
+                Notify (\_PR.CPU9, 0x80) // Performance Capability Change
+                If ((PDC9 & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPU9, 0x81)
+                    Notify (\_PR.CPU9, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCA, 0x08))
+            If ((PDCA & 0x08))
             {
-                Notify (\_PR.CPUA, 0x80)
-                If (And (PDCA, 0x10))
+                Notify (\_PR.CPUA, 0x80) // Performance Capability Change
+                If ((PDCA & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUA, 0x81)
+                    Notify (\_PR.CPUA, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCB, 0x08))
+            If ((PDCB & 0x08))
             {
-                Notify (\_PR.CPUB, 0x80)
-                If (And (PDCB, 0x10))
+                Notify (\_PR.CPUB, 0x80) // Performance Capability Change
+                If ((PDCB & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUB, 0x81)
+                    Notify (\_PR.CPUB, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCC, 0x08))
+            If ((PDCC & 0x08))
             {
-                Notify (\_PR.CPUC, 0x80)
-                If (And (PDCC, 0x10))
+                Notify (\_PR.CPUC, 0x80) // Performance Capability Change
+                If ((PDCC & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUC, 0x81)
+                    Notify (\_PR.CPUC, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCD, 0x08))
+            If ((PDCD & 0x08))
             {
-                Notify (\_PR.CPUD, 0x80)
-                If (And (PDCD, 0x10))
+                Notify (\_PR.CPUD, 0x80) // Performance Capability Change
+                If ((PDCD & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUD, 0x81)
+                    Notify (\_PR.CPUD, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCE, 0x08))
+            If ((PDCE & 0x08))
             {
-                Notify (\_PR.CPUE, 0x80)
-                If (And (PDCE, 0x10))
+                Notify (\_PR.CPUE, 0x80) // Performance Capability Change
+                If ((PDCE & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUE, 0x81)
+                    Notify (\_PR.CPUE, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCF, 0x08))
+            If ((PDCF & 0x08))
             {
-                Notify (\_PR.CPUF, 0x80)
-                If (And (PDCF, 0x10))
+                Notify (\_PR.CPUF, 0x80) // Performance Capability Change
+                If ((PDCF & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUF, 0x81)
+                    Notify (\_PR.CPUF, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCG, 0x08))
+            If ((PDCG & 0x08))
             {
-                Notify (\_PR.CPUG, 0x80)
-                If (And (PDCG, 0x10))
+                Notify (\_PR.CPUG, 0x80) // Performance Capability Change
+                If ((PDCG & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUG, 0x81)
+                    Notify (\_PR.CPUG, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCH, 0x08))
+            If ((PDCH & 0x08))
             {
-                Notify (\_PR.CPUH, 0x80)
-                If (And (PDCH, 0x10))
+                Notify (\_PR.CPUH, 0x80) // Performance Capability Change
+                If ((PDCH & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUH, 0x81)
+                    Notify (\_PR.CPUH, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCI, 0x08))
+            If ((PDCI & 0x08))
             {
-                Notify (\_PR.CPUI, 0x80)
-                If (And (PDCI, 0x10))
+                Notify (\_PR.CPUI, 0x80) // Performance Capability Change
+                If ((PDCI & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUI, 0x81)
+                    Notify (\_PR.CPUI, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCJ, 0x08))
+            If ((PDCJ & 0x08))
             {
-                Notify (\_PR.CPUJ, 0x80)
-                If (And (PDCJ, 0x10))
+                Notify (\_PR.CPUJ, 0x80) // Performance Capability Change
+                If ((PDCJ & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUJ, 0x81)
+                    Notify (\_PR.CPUJ, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCK, 0x08))
+            If ((PDCK & 0x08))
             {
-                Notify (\_PR.CPUK, 0x80)
-                If (And (PDCK, 0x10))
+                Notify (\_PR.CPUK, 0x80) // Performance Capability Change
+                If ((PDCK & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUK, 0x81)
+                    Notify (\_PR.CPUK, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCL, 0x08))
+            If ((PDCL & 0x08))
             {
-                Notify (\_PR.CPUL, 0x80)
-                If (And (PDCL, 0x10))
+                Notify (\_PR.CPUL, 0x80) // Performance Capability Change
+                If ((PDCL & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUL, 0x81)
+                    Notify (\_PR.CPUL, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCM, 0x08))
+            If ((PDCM & 0x08))
             {
-                Notify (\_PR.CPUM, 0x80)
-                If (And (PDCM, 0x10))
+                Notify (\_PR.CPUM, 0x80) // Performance Capability Change
+                If ((PDCM & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUM, 0x81)
+                    Notify (\_PR.CPUM, 0x81) // C-State Change
                 }
             }
 
-            If (And (PDCN, 0x08))
+            If ((PDCN & 0x08))
             {
-                Notify (\_PR.CPUN, 0x80)
-                If (And (PDCN, 0x10))
+                Notify (\_PR.CPUN, 0x80) // Performance Capability Change
+                If ((PDCN & 0x10))
                 {
                     Sleep (0x64)
-                    Notify (\_PR.CPUN, 0x81)
+                    Notify (\_PR.CPUN, 0x81) // C-State Change
                 }
             }
         }
         Else
         {
-            Notify (\_PR.CPU0, 0x80)
+            Notify (\_PR.CPU0, 0x80) // Performance Capability Change
             Sleep (0x64)
-            Notify (\_PR.CPU0, 0x81)
+            Notify (\_PR.CPU0, 0x81) // C-State Change
         }
     }
 
-    Scope (\_SB)
+    Scope (_SB)
     {
         Method (_INI, 0, NotSerialized)  // _INI: Initialize
         {
@@ -984,7 +982,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
         Device (PWRB)
         {
-            Name (_HID, EisaId ("PNP0C0C"))  // _HID: Hardware ID
+            Name (_HID, EisaId ("PNP0C0C") /* Power Button Device */)  // _HID: Hardware ID
             Name (_STA, 0x0B)  // _STA: Status
         }
 
@@ -994,13 +992,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
             {
                 If (OSDW ())
                 {
-                    \_SB.PCI0.SBUS.ENAB ()
+                    ^SBUS.ENAB ()
                 }
             }
 
             Device (APIC)
             {
-                Name (_HID, EisaId ("PNP0003"))  // _HID: Hardware ID
+                Name (_HID, EisaId ("PNP0003") /* IO-APIC Interrupt Controller */)  // _HID: Hardware ID
                 Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                 {
                     Memory32Fixed (ReadOnly,
@@ -1010,10 +1008,10 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 })
             }
 
-            Name (_HID, EisaId ("PNP0A08"))  // _HID: Hardware ID
-            Name (_CID, EisaId ("PNP0A03"))  // _CID: Compatible ID
-            Name (_ADR, 0x00)  // _ADR: Address
-            Name (_BBN, 0x00)  // _BBN: BIOS Bus Number
+            Name (_HID, EisaId ("PNP0A08") /* PCI Express Bus */)  // _HID: Hardware ID
+            Name (_CID, EisaId ("PNP0A03") /* PCI Bus */)  // _CID: Compatible ID
+            Name (_ADR, Zero)  // _ADR: Address
+            Name (_BBN, Zero)  // _BBN: BIOS Bus Number
             OperationRegion (HBUS, PCI_Config, 0x40, 0xC0)
             Field (HBUS, DWordAcc, NoLock, Preserve)
             {
@@ -1106,7 +1104,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
             Method (_CRS, 0, NotSerialized)  // _CRS: Current Resource Settings
             {
                 EROM ()
-                Return (PBRS)
+                Return (PBRS) /* \_SB_.PCI0.PBRS */
             }
 
             OperationRegion (PAMX, PCI_Config, 0x90, 0x07)
@@ -1140,116 +1138,116 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 CreateDWordField (PBRS, \_SB.PCI0._Y00._MAX, RMAX)  // _MAX: Maximum Base Address
                 CreateDWordField (PBRS, \_SB.PCI0._Y00._LEN, RLEN)  // _LEN: Length
                 CreateByteField (PAMB, 0x06, BREG)
-                Store (PAMS, PAMB)
-                Store (BSEG, BREG)
-                Store (0x00, RMIN)
-                Store (0x00, RMAX)
-                Store (0x00, RLEN)
-                Store (0x00, Local0)
-                While (LLess (Local0, 0x0D))
+                PAMB = PAMS /* \_SB_.PCI0.PAMS */
+                BREG = BSEG /* \_SB_.PCI0.BSEG */
+                RMIN = Zero
+                RMAX = Zero
+                RLEN = Zero
+                Local0 = Zero
+                While ((Local0 < 0x0D))
                 {
-                    ShiftRight (Local0, 0x01, Local1)
-                    Store (DerefOf (Index (PAMB, Local1)), Local2)
-                    If (And (Local0, 0x01))
+                    Local1 = (Local0 >> One)
+                    Local2 = DerefOf (PAMB [Local1])
+                    If ((Local0 & One))
                     {
-                        ShiftRight (Local2, 0x04, Local2)
+                        Local2 >>= 0x04
                     }
 
-                    And (Local2, 0x03, Local2)
+                    Local2 &= 0x03
                     If (RMIN)
                     {
                         If (Local2)
                         {
-                            Add (DerefOf (Index (ERNG, Local0)), 0x3FFF, RMAX)
-                            If (LEqual (RMAX, 0x000F3FFF))
+                            RMAX = (DerefOf (ERNG [Local0]) + 0x3FFF)
+                            If ((RMAX == 0x000F3FFF))
                             {
-                                Store (0x000FFFFF, RMAX)
+                                RMAX = 0x000FFFFF
                             }
 
-                            Subtract (RMAX, RMIN, RLEN)
-                            Increment (RLEN)
+                            RLEN = (RMAX - RMIN) /* \_SB_.PCI0.EROM.RMIN */
+                            RLEN++
                         }
                         Else
                         {
-                            Store (0x0C, Local0)
+                            Local0 = 0x0C
                         }
                     }
                     ElseIf (Local2)
                     {
-                        Store (DerefOf (Index (ERNG, Local0)), RMIN)
-                        Add (DerefOf (Index (ERNG, Local0)), 0x3FFF, RMAX)
-                        If (LEqual (RMAX, 0x000F3FFF))
+                        RMIN = DerefOf (ERNG [Local0])
+                        RMAX = (DerefOf (ERNG [Local0]) + 0x3FFF)
+                        If ((RMAX == 0x000F3FFF))
                         {
-                            Store (0x000FFFFF, RMAX)
+                            RMAX = 0x000FFFFF
                         }
 
-                        Subtract (RMAX, RMIN, RLEN)
-                        Increment (RLEN)
+                        RLEN = (RMAX - RMIN) /* \_SB_.PCI0.EROM.RMIN */
+                        RLEN++
                     }
                     Else
                     {
                     }
 
-                    Increment (Local0)
+                    Local0++
                 }
             }
 
             Method (_OSC, 4, NotSerialized)  // _OSC: Operating System Capabilities
             {
-                CreateDWordField (Arg3, 0x00, CDW1)
-                If (LEqual (Arg0, ToUUID ("33db4d5b-1ff7-401c-9657-7441c03dd766") /* PCI Host Bridge Device */))
+                CreateDWordField (Arg3, Zero, CDW1)
+                If ((Arg0 == ToUUID ("33db4d5b-1ff7-401c-9657-7441c03dd766") /* PCI Host Bridge Device */))
                 {
-                    If (LGreaterEqual (Arg2, 0x03))
+                    If ((Arg2 >= 0x03))
                     {
-                        Name (SUPP, 0x00)
-                        Name (CTRL, 0x00)
-                        Store (0x03, Local0)
+                        Name (SUPP, Zero)
+                        Name (CTRL, Zero)
+                        Local0 = 0x03
                         CreateDWordField (Arg3, 0x04, CDW2)
                         CreateDWordField (Arg3, 0x08, CDW3)
-                        Store (CDW2, SUPP)
-                        Store (CDW3, CTRL)
-                        And (CTRL, 0x1D, CTRL)
-                        If (LNotEqual (And (SUPP, 0x16), 0x16))
+                        SUPP = CDW2 /* \_SB_.PCI0._OSC.CDW2 */
+                        CTRL = CDW3 /* \_SB_.PCI0._OSC.CDW3 */
+                        CTRL &= 0x1D
+                        If (((SUPP & 0x16) != 0x16))
                         {
-                            And (CTRL, 0x1E, CTRL)
+                            CTRL &= 0x1E
                         }
 
-                        If (LNot (And (CDW1, 0x01)))
+                        If (!(CDW1 & One))
                         {
-                            If (And (CTRL, 0x01))
+                            If ((CTRL & One))
                             {
-                                And (Local0, 0x0E, Local0)
+                                Local0 &= 0x0E
                             }
 
-                            If (And (CTRL, 0x04))
+                            If ((CTRL & 0x04))
                             {
-                                And (Local0, 0x0D, Local0)
-                                \_SB.PCI0.LPCB.GPMD (0x00)
+                                Local0 &= 0x0D
+                                ^LPCB.GPMD (Zero)
                             }
 
-                            If (And (CTRL, 0x10)){}
+                            If ((CTRL & 0x10)){}
                         }
 
-                        If (LNotEqual (Arg1, One))
+                        If ((Arg1 != One))
                         {
-                            Or (CDW1, 0x08, CDW1)
+                            CDW1 |= 0x08
                         }
 
-                        If (LNotEqual (CDW3, CTRL))
+                        If ((CDW3 != CTRL))
                         {
-                            Or (CDW1, 0x10, CDW1)
+                            CDW1 |= 0x10
                         }
 
-                        Store (CTRL, CDW3)
+                        CDW3 = CTRL /* \_SB_.PCI0._OSC.CTRL */
                     }
                     Else
                     {
-                        Or (CDW1, 0x02, CDW1)
+                        CDW1 |= 0x02
                     }
                 }
                 Else
                 {
-                    Or (CDW1, 0x04, CDW1)
+                    CDW1 |= 0x04
                 }
 
                 Return (Arg3)
@@ -1257,23 +1255,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
             Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
             {
-                If (\GPIC)
+                If (GPIC)
                 {
                     Return (Package (0x1F)
                     {
                         Package (0x04)
                         {
                             0x0001FFFF, 
-                            0x00, 
-                            0x00, 
+                            Zero, 
+                            Zero, 
                             0x10
                         }, 
 
                         Package (0x04)
                         {
                             0x0001FFFF, 
-                            0x01, 
-                            0x00, 
+                            One, 
+                            Zero, 
                             0x11
                         }, 
 
@@ -1281,7 +1279,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x0001FFFF, 
                             0x02, 
-                            0x00, 
+                            Zero, 
                             0x12
                         }, 
 
@@ -1289,23 +1287,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x0001FFFF, 
                             0x03, 
-                            0x00, 
+                            Zero, 
                             0x13
                         }, 
 
                         Package (0x04)
                         {
                             0x0003FFFF, 
-                            0x00, 
-                            0x00, 
+                            Zero, 
+                            Zero, 
                             0x10
                         }, 
 
                         Package (0x04)
                         {
                             0x0003FFFF, 
-                            0x01, 
-                            0x00, 
+                            One, 
+                            Zero, 
                             0x11
                         }, 
 
@@ -1313,7 +1311,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x0003FFFF, 
                             0x02, 
-                            0x00, 
+                            Zero, 
                             0x12
                         }, 
 
@@ -1321,23 +1319,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x0003FFFF, 
                             0x03, 
-                            0x00, 
+                            Zero, 
                             0x13
                         }, 
 
                         Package (0x04)
                         {
                             0x0007FFFF, 
-                            0x00, 
-                            0x00, 
+                            Zero, 
+                            Zero, 
                             0x10
                         }, 
 
                         Package (0x04)
                         {
                             0x0007FFFF, 
-                            0x01, 
-                            0x00, 
+                            One, 
+                            Zero, 
                             0x11
                         }, 
 
@@ -1345,7 +1343,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x0007FFFF, 
                             0x02, 
-                            0x00, 
+                            Zero, 
                             0x12
                         }, 
 
@@ -1353,23 +1351,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x0007FFFF, 
                             0x03, 
-                            0x00, 
+                            Zero, 
                             0x13
                         }, 
 
                         Package (0x04)
                         {
                             0x000DFFFF, 
-                            0x00, 
-                            0x00, 
+                            Zero, 
+                            Zero, 
                             0x10
                         }, 
 
                         Package (0x04)
                         {
                             0x000DFFFF, 
-                            0x01, 
-                            0x00, 
+                            One, 
+                            Zero, 
                             0x11
                         }, 
 
@@ -1377,7 +1375,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x000DFFFF, 
                             0x02, 
-                            0x00, 
+                            Zero, 
                             0x12
                         }, 
 
@@ -1385,23 +1383,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x000DFFFF, 
                             0x03, 
-                            0x00, 
+                            Zero, 
                             0x13
                         }, 
 
                         Package (0x04)
                         {
                             0x001AFFFF, 
-                            0x00, 
-                            0x00, 
+                            Zero, 
+                            Zero, 
                             0x10
                         }, 
 
                         Package (0x04)
                         {
                             0x001AFFFF, 
-                            0x01, 
-                            0x00, 
+                            One, 
+                            Zero, 
                             0x15
                         }, 
 
@@ -1409,7 +1407,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x001AFFFF, 
                             0x02, 
-                            0x00, 
+                            Zero, 
                             0x12
                         }, 
 
@@ -1417,31 +1415,31 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x001AFFFF, 
                             0x03, 
-                            0x00, 
+                            Zero, 
                             0x13
                         }, 
 
                         Package (0x04)
                         {
                             0x001BFFFF, 
-                            0x00, 
-                            0x00, 
+                            Zero, 
+                            Zero, 
                             0x16
                         }, 
 
                         Package (0x04)
                         {
                             0x001CFFFF, 
-                            0x00, 
-                            0x00, 
+                            Zero, 
+                            Zero, 
                             0x10
                         }, 
 
                         Package (0x04)
                         {
                             0x001CFFFF, 
-                            0x01, 
-                            0x00, 
+                            One, 
+                            Zero, 
                             0x11
                         }, 
 
@@ -1449,7 +1447,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x001CFFFF, 
                             0x02, 
-                            0x00, 
+                            Zero, 
                             0x12
                         }, 
 
@@ -1457,23 +1455,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x001CFFFF, 
                             0x03, 
-                            0x00, 
+                            Zero, 
                             0x13
                         }, 
 
                         Package (0x04)
                         {
                             0x001DFFFF, 
-                            0x00, 
-                            0x00, 
+                            Zero, 
+                            Zero, 
                             0x17
                         }, 
 
                         Package (0x04)
                         {
                             0x001DFFFF, 
-                            0x01, 
-                            0x00, 
+                            One, 
+                            Zero, 
                             0x13
                         }, 
 
@@ -1481,7 +1479,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x001DFFFF, 
                             0x02, 
-                            0x00, 
+                            Zero, 
                             0x12
                         }, 
 
@@ -1489,15 +1487,15 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x001DFFFF, 
                             0x03, 
-                            0x00, 
+                            Zero, 
                             0x10
                         }, 
 
                         Package (0x04)
                         {
                             0x001FFFFF, 
-                            0x01, 
-                            0x00, 
+                            One, 
+                            Zero, 
                             0x11
                         }, 
 
@@ -1505,7 +1503,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         {
                             0x001FFFFF, 
                             0x02, 
-                            0x00, 
+                            Zero, 
                             0x12
                         }
                     })
@@ -1517,249 +1515,249 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         Package (0x04)
                         {
                             0x0001FFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
+                            Zero, 
+                            ^LPCB.LNKA, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0001FFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
+                            One, 
+                            ^LPCB.LNKB, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0001FFFF, 
                             0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
+                            ^LPCB.LNKC, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0001FFFF, 
                             0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
+                            ^LPCB.LNKD, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0003FFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
+                            Zero, 
+                            ^LPCB.LNKA, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0003FFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
+                            One, 
+                            ^LPCB.LNKB, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0003FFFF, 
                             0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
+                            ^LPCB.LNKC, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0003FFFF, 
                             0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
+                            ^LPCB.LNKD, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0007FFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
+                            Zero, 
+                            ^LPCB.LNKA, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0007FFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
+                            One, 
+                            ^LPCB.LNKB, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0007FFFF, 
                             0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
+                            ^LPCB.LNKC, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x0007FFFF, 
                             0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
+                            ^LPCB.LNKD, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x000DFFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
+                            Zero, 
+                            ^LPCB.LNKA, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x000DFFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
+                            One, 
+                            ^LPCB.LNKB, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x000DFFFF, 
                             0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
+                            ^LPCB.LNKC, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x000DFFFF, 
                             0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
+                            ^LPCB.LNKD, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001AFFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
+                            Zero, 
+                            ^LPCB.LNKA, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001AFFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKF, 
-                            0x00
+                            One, 
+                            ^LPCB.LNKF, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001AFFFF, 
                             0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
+                            ^LPCB.LNKC, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001AFFFF, 
                             0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
+                            ^LPCB.LNKD, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001BFFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKG, 
-                            0x00
+                            Zero, 
+                            ^LPCB.LNKG, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001CFFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
+                            Zero, 
+                            ^LPCB.LNKA, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001CFFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
+                            One, 
+                            ^LPCB.LNKB, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001CFFFF, 
                             0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
+                            ^LPCB.LNKC, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001CFFFF, 
                             0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
+                            ^LPCB.LNKD, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001DFFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKH, 
-                            0x00
+                            Zero, 
+                            ^LPCB.LNKH, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001DFFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
+                            One, 
+                            ^LPCB.LNKD, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001DFFFF, 
                             0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
+                            ^LPCB.LNKC, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001DFFFF, 
                             0x03, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
+                            ^LPCB.LNKA, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001FFFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
+                            One, 
+                            ^LPCB.LNKB, 
+                            Zero
                         }, 
 
                         Package (0x04)
                         {
                             0x001FFFFF, 
                             0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
+                            ^LPCB.LNKC, 
+                            Zero
                         }
                     })
                 }
@@ -1767,7 +1765,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
             Device (ESI)
             {
-                Name (_ADR, 0x00)  // _ADR: Address
+                Name (_ADR, Zero)  // _ADR: Address
                 Method (_STA, 0, NotSerialized)  // _STA: Status
                 {
                     Return (0x0B)
@@ -1776,8 +1774,8 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
             Device (PDRC)
             {
-                Name (_HID, EisaId ("PNP0C02"))  // _HID: Hardware ID
-                Name (_UID, 0x01)  // _UID: Unique ID
+                Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
+                Name (_UID, One)  // _UID: Unique ID
                 Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                 {
                     Memory32Fixed (ReadOnly,
@@ -1865,7 +1863,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (ETH0)
                 {
-                    Name (_ADR, 0x00)  // _ADR: Address
+                    Name (_ADR, Zero)  // _ADR: Address
                     Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                     {
                         0x09, 
@@ -1873,14 +1871,14 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                     {
-                        Store (Package (0x02)
+                        Local0 = Package (0x02)
                             {
                                 "location", 
                                 Buffer (0x02)
                                 {
                                     "1"
                                 }
-                            }, Local0)
+                            }
                         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                         Return (Local0)
                     }
@@ -1888,23 +1886,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
-                    If (\GPIC)
+                    If (GPIC)
                     {
                         Return (Package (0x04)
                         {
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x00, 
-                                0x00, 
+                                Zero, 
+                                Zero, 
                                 0x12
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x01, 
-                                0x00, 
+                                One, 
+                                Zero, 
                                 0x13
                             }, 
 
@@ -1912,7 +1910,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             {
                                 0xFFFF, 
                                 0x02, 
-                                0x00, 
+                                Zero, 
                                 0x10
                             }, 
 
@@ -1920,7 +1918,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             {
                                 0xFFFF, 
                                 0x03, 
-                                0x00, 
+                                Zero, 
                                 0x11
                             }
                         })
@@ -1932,33 +1930,33 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x00, 
-                                \_SB.PCI0.LPCB.LNKC, 
-                                0x00
+                                Zero, 
+                                ^^LPCB.LNKC, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x01, 
-                                \_SB.PCI0.LPCB.LNKD, 
-                                0x00
+                                One, 
+                                ^^LPCB.LNKD, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
                                 0x02, 
-                                \_SB.PCI0.LPCB.LNKA, 
-                                0x00
+                                ^^LPCB.LNKA, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
                                 0x03, 
-                                \_SB.PCI0.LPCB.LNKB, 
-                                0x00
+                                ^^LPCB.LNKB, 
+                                Zero
                             }
                         })
                     }
@@ -1982,7 +1980,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (ETH1)
                 {
-                    Name (_ADR, 0x00)  // _ADR: Address
+                    Name (_ADR, Zero)  // _ADR: Address
                     Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                     {
                         0x09, 
@@ -1990,14 +1988,14 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                     {
-                        Store (Package (0x02)
+                        Local0 = Package (0x02)
                             {
                                 "location", 
                                 Buffer (0x02)
                                 {
                                     "2"
                                 }
-                            }, Local0)
+                            }
                         DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                         Return (Local0)
                     }
@@ -2005,23 +2003,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
-                    If (\GPIC)
+                    If (GPIC)
                     {
                         Return (Package (0x04)
                         {
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x00, 
-                                0x00, 
+                                Zero, 
+                                Zero, 
                                 0x13
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x01, 
-                                0x00, 
+                                One, 
+                                Zero, 
                                 0x10
                             }, 
 
@@ -2029,7 +2027,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             {
                                 0xFFFF, 
                                 0x02, 
-                                0x00, 
+                                Zero, 
                                 0x11
                             }, 
 
@@ -2037,7 +2035,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             {
                                 0xFFFF, 
                                 0x03, 
-                                0x00, 
+                                Zero, 
                                 0x12
                             }
                         })
@@ -2049,33 +2047,33 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x00, 
-                                \_SB.PCI0.LPCB.LNKD, 
-                                0x00
+                                Zero, 
+                                ^^LPCB.LNKD, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x01, 
-                                \_SB.PCI0.LPCB.LNKA, 
-                                0x00
+                                One, 
+                                ^^LPCB.LNKA, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
                                 0x02, 
-                                \_SB.PCI0.LPCB.LNKB, 
-                                0x00
+                                ^^LPCB.LNKB, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
                                 0x03, 
-                                \_SB.PCI0.LPCB.LNKC, 
-                                0x00
+                                ^^LPCB.LNKC, 
+                                Zero
                             }
                         })
                     }
@@ -2099,21 +2097,21 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (FWBR)
                 {
-                    Name (_ADR, 0x00)  // _ADR: Address
+                    Name (_ADR, Zero)  // _ADR: Address
                     Device (FRWR)
                     {
-                        Name (_ADR, 0x00)  // _ADR: Address
+                        Name (_ADR, Zero)  // _ADR: Address
                         Name (_GPE, 0x1A)  // _GPE: General Purpose Events
                         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                         {
-                            Store (Package (0x02)
+                            Local0 = Package (0x02)
                                 {
                                     "fwhub", 
                                     Buffer (0x04)
                                     {
-                                         0x00, 0x00, 0x00, 0x00                         
+                                         0x00, 0x00, 0x00, 0x00                           // ....
                                     }
-                                }, Local0)
+                                }
                             DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                             Return (Local0)
                         }
@@ -2122,23 +2120,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
-                    If (\GPIC)
+                    If (GPIC)
                     {
                         Return (Package (0x04)
                         {
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x00, 
-                                0x00, 
+                                Zero, 
+                                Zero, 
                                 0x10
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x01, 
-                                0x00, 
+                                One, 
+                                Zero, 
                                 0x11
                             }, 
 
@@ -2146,7 +2144,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             {
                                 0xFFFF, 
                                 0x02, 
-                                0x00, 
+                                Zero, 
                                 0x12
                             }, 
 
@@ -2154,7 +2152,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             {
                                 0xFFFF, 
                                 0x03, 
-                                0x00, 
+                                Zero, 
                                 0x13
                             }
                         })
@@ -2166,33 +2164,33 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x00, 
-                                \_SB.PCI0.LPCB.LNKA, 
-                                0x00
+                                Zero, 
+                                ^^LPCB.LNKA, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x01, 
-                                \_SB.PCI0.LPCB.LNKB, 
-                                0x00
+                                One, 
+                                ^^LPCB.LNKB, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
                                 0x02, 
-                                \_SB.PCI0.LPCB.LNKC, 
-                                0x00
+                                ^^LPCB.LNKC, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
                                 0x03, 
-                                \_SB.PCI0.LPCB.LNKD, 
-                                0x00
+                                ^^LPCB.LNKD, 
+                                Zero
                             }
                         })
                     }
@@ -2216,7 +2214,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (ARPT)
                 {
-                    Name (_ADR, 0x00)  // _ADR: Address
+                    Name (_ADR, Zero)  // _ADR: Address
                     Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                     {
                         0x09, 
@@ -2227,23 +2225,23 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
-                    If (\GPIC)
+                    If (GPIC)
                     {
                         Return (Package (0x04)
                         {
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x00, 
-                                0x00, 
+                                Zero, 
+                                Zero, 
                                 0x11
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x01, 
-                                0x00, 
+                                One, 
+                                Zero, 
                                 0x12
                             }, 
 
@@ -2251,7 +2249,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             {
                                 0xFFFF, 
                                 0x02, 
-                                0x00, 
+                                Zero, 
                                 0x13
                             }, 
 
@@ -2259,7 +2257,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             {
                                 0xFFFF, 
                                 0x03, 
-                                0x00, 
+                                Zero, 
                                 0x10
                             }
                         })
@@ -2271,33 +2269,33 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x00, 
-                                \_SB.PCI0.LPCB.LNKB, 
-                                0x00
+                                Zero, 
+                                ^^LPCB.LNKB, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
-                                0x01, 
-                                \_SB.PCI0.LPCB.LNKC, 
-                                0x00
+                                One, 
+                                ^^LPCB.LNKC, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
                                 0x02, 
-                                \_SB.PCI0.LPCB.LNKD, 
-                                0x00
+                                ^^LPCB.LNKD, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
                                 0xFFFF, 
                                 0x03, 
-                                \_SB.PCI0.LPCB.LNKA, 
-                                0x00
+                                ^^LPCB.LNKA, 
+                                Zero
                             }
                         })
                     }
@@ -2322,11 +2320,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     If (Arg0)
                     {
-                        Store (0x03, U1EN)
+                        U1EN = 0x03
                     }
                     Else
                     {
-                        Store (0x00, U1EN)
+                        U1EN = Zero
                     }
                 }
             }
@@ -2349,11 +2347,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     If (Arg0)
                     {
-                        Store (0x03, U2EN)
+                        U2EN = 0x03
                     }
                     Else
                     {
-                        Store (0x00, U2EN)
+                        U2EN = Zero
                     }
                 }
             }
@@ -2376,11 +2374,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     If (Arg0)
                     {
-                        Store (0x03, U3EN)
+                        U3EN = 0x03
                     }
                     Else
                     {
-                        Store (0x00, U3EN)
+                        U3EN = Zero
                     }
                 }
             }
@@ -2403,11 +2401,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     If (Arg0)
                     {
-                        Store (0x03, U4EN)
+                        U4EN = 0x03
                     }
                     Else
                     {
-                        Store (0x00, U4EN)
+                        U4EN = Zero
                     }
                 }
             }
@@ -2430,11 +2428,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     If (Arg0)
                     {
-                        Store (0x03, U5EN)
+                        U5EN = 0x03
                     }
                     Else
                     {
-                        Store (0x00, U5EN)
+                        U5EN = Zero
                     }
                 }
             }
@@ -2457,11 +2455,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     If (Arg0)
                     {
-                        Store (0x03, U6EN)
+                        U6EN = 0x03
                     }
                     Else
                     {
-                        Store (0x00, U6EN)
+                        U6EN = Zero
                     }
                 }
             }
@@ -2489,20 +2487,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
                 {
-                    If (LEqual (Arg0, Zero))
+                    If ((Arg0 == Zero))
                     {
-                        Store (0x00, URE2)
+                        URE2 = Zero
                     }
 
-                    If (LEqual (Arg0, One))
+                    If ((Arg0 == One))
                     {
-                        Store (0x01FF, URE2)
+                        URE2 = 0x01FF
                     }
                 }
 
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    Store (Package (0x07)
+                    Local0 = Package (0x07)
                         {
                             "AAPL,current-available", 
                             0x05DC, 
@@ -2510,11 +2508,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             0x04B0, 
                             "AAPL,current-in-sleep", 
                             0x09C4, 
-                            Buffer (0x01)
+                            Buffer (One)
                             {
-                                 0x00                                           
+                                 0x00                                             // .
                             }
-                        }, Local0)
+                        }
                     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                     Return (Local0)
                 }
@@ -2543,20 +2541,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (_PSW, 1, NotSerialized)  // _PSW: Power State Wake
                 {
-                    If (LEqual (Arg0, Zero))
+                    If ((Arg0 == Zero))
                     {
-                        Store (0x00, URE2)
+                        URE2 = Zero
                     }
 
-                    If (LEqual (Arg0, One))
+                    If ((Arg0 == One))
                     {
-                        Store (0x01FF, URE2)
+                        URE2 = 0x01FF
                     }
                 }
 
                 Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                 {
-                    Store (Package (0x07)
+                    Local0 = Package (0x07)
                         {
                             "AAPL,current-available", 
                             0x05DC, 
@@ -2564,11 +2562,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             0x04B0, 
                             "AAPL,current-in-sleep", 
                             0x09C4, 
-                            Buffer (0x01)
+                            Buffer (One)
                             {
-                                 0x00                                           
+                                 0x00                                             // .
                             }
-                        }, Local0)
+                        }
                     DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                     Return (Local0)
                 }
@@ -2606,16 +2604,16 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (GPMD, 1, NotSerialized)
                 {
-                    Store (Arg0, XPME)
+                    XPME = Arg0
                 }
 
                 Device (LNKA)
                 {
-                    Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
-                    Name (_UID, 0x01)  // _UID: Unique ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
+                    Name (_UID, One)  // _UID: Unique ID
                     Method (_STA, 0, Serialized)  // _STA: Status
                     {
-                        If (And (PARC, 0x80))
+                        If ((PARC & 0x80))
                         {
                             Return (0x09)
                         }
@@ -2627,20 +2625,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                     Method (_DIS, 0, Serialized)  // _DIS: Disable Device
                     {
-                        Or (PARC, 0x80, PARC)
+                        PARC |= 0x80
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (RTLA, ResourceTemplate ()
                         {
-                            IRQ (Level, ActiveLow, Shared, _Y01)
+                            IRQ (Level, ActiveLow, Shared, )
                                 {}
                         })
-                        CreateWordField (RTLA, \_SB.PCI0.LPCB.LNKA._CRS._Y01._INT, IRQ0)  // _INT: Interrupts
-                        Store (Zero, IRQ0)
-                        ShiftLeft (0x01, And (PARC, 0x0F), IRQ0)
-                        Return (RTLA)
+                        CreateWordField (RTLA, One, IRQ0)
+                        IRQ0 = Zero
+                        IRQ0 = (One << (PARC & 0x0F))
+                        Return (RTLA) /* \_SB_.PCI0.LPCB.LNKA._CRS.RTLA */
                     }
 
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -2650,20 +2648,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                     {
-                        CreateWordField (Arg0, 0x01, IRQ0)
+                        CreateWordField (Arg0, One, IRQ0)
                         FindSetRightBit (IRQ0, Local0)
-                        Decrement (Local0)
-                        Store (Local0, PARC)
+                        Local0--
+                        PARC = Local0
                     }
                 }
 
                 Device (LNKB)
                 {
-                    Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
                     Name (_UID, 0x02)  // _UID: Unique ID
                     Method (_STA, 0, Serialized)  // _STA: Status
                     {
-                        If (And (PBRC, 0x80))
+                        If ((PBRC & 0x80))
                         {
                             Return (0x09)
                         }
@@ -2675,20 +2673,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                     Method (_DIS, 0, Serialized)  // _DIS: Disable Device
                     {
-                        Or (PBRC, 0x80, PBRC)
+                        PBRC |= 0x80
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (RTLB, ResourceTemplate ()
                         {
-                            IRQ (Level, ActiveLow, Shared, _Y02)
+                            IRQ (Level, ActiveLow, Shared, )
                                 {}
                         })
-                        CreateWordField (RTLB, \_SB.PCI0.LPCB.LNKB._CRS._Y02._INT, IRQ0)  // _INT: Interrupts
-                        Store (Zero, IRQ0)
-                        ShiftLeft (0x01, And (PBRC, 0x0F), IRQ0)
-                        Return (RTLB)
+                        CreateWordField (RTLB, One, IRQ0)
+                        IRQ0 = Zero
+                        IRQ0 = (One << (PBRC & 0x0F))
+                        Return (RTLB) /* \_SB_.PCI0.LPCB.LNKB._CRS.RTLB */
                     }
 
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -2698,20 +2696,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                     {
-                        CreateWordField (Arg0, 0x01, IRQ0)
+                        CreateWordField (Arg0, One, IRQ0)
                         FindSetRightBit (IRQ0, Local0)
-                        Decrement (Local0)
-                        Store (Local0, PBRC)
+                        Local0--
+                        PBRC = Local0
                     }
                 }
 
                 Device (LNKC)
                 {
-                    Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
                     Name (_UID, 0x03)  // _UID: Unique ID
                     Method (_STA, 0, Serialized)  // _STA: Status
                     {
-                        If (And (PCRC, 0x80))
+                        If ((PCRC & 0x80))
                         {
                             Return (0x09)
                         }
@@ -2723,20 +2721,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                     Method (_DIS, 0, Serialized)  // _DIS: Disable Device
                     {
-                        Or (PCRC, 0x80, PCRC)
+                        PCRC |= 0x80
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (RTLC, ResourceTemplate ()
                         {
-                            IRQ (Level, ActiveLow, Shared, _Y03)
+                            IRQ (Level, ActiveLow, Shared, )
                                 {}
                         })
-                        CreateWordField (RTLC, \_SB.PCI0.LPCB.LNKC._CRS._Y03._INT, IRQ0)  // _INT: Interrupts
-                        Store (Zero, IRQ0)
-                        ShiftLeft (0x01, And (PCRC, 0x0F), IRQ0)
-                        Return (RTLC)
+                        CreateWordField (RTLC, One, IRQ0)
+                        IRQ0 = Zero
+                        IRQ0 = (One << (PCRC & 0x0F))
+                        Return (RTLC) /* \_SB_.PCI0.LPCB.LNKC._CRS.RTLC */
                     }
 
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -2746,20 +2744,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                     {
-                        CreateWordField (Arg0, 0x01, IRQ0)
+                        CreateWordField (Arg0, One, IRQ0)
                         FindSetRightBit (IRQ0, Local0)
-                        Decrement (Local0)
-                        Store (Local0, PCRC)
+                        Local0--
+                        PCRC = Local0
                     }
                 }
 
                 Device (LNKD)
                 {
-                    Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
                     Name (_UID, 0x04)  // _UID: Unique ID
                     Method (_STA, 0, Serialized)  // _STA: Status
                     {
-                        If (And (PDRC, 0x80))
+                        If ((PDRC & 0x80))
                         {
                             Return (0x09)
                         }
@@ -2771,20 +2769,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                     Method (_DIS, 0, Serialized)  // _DIS: Disable Device
                     {
-                        Or (PDRC, 0x80, PDRC)
+                        PDRC |= 0x80
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (RTLD, ResourceTemplate ()
                         {
-                            IRQ (Level, ActiveLow, Shared, _Y04)
+                            IRQ (Level, ActiveLow, Shared, )
                                 {}
                         })
-                        CreateWordField (RTLD, \_SB.PCI0.LPCB.LNKD._CRS._Y04._INT, IRQ0)  // _INT: Interrupts
-                        Store (Zero, IRQ0)
-                        ShiftLeft (0x01, And (PDRC, 0x0F), IRQ0)
-                        Return (RTLD)
+                        CreateWordField (RTLD, One, IRQ0)
+                        IRQ0 = Zero
+                        IRQ0 = (One << (PDRC & 0x0F))
+                        Return (RTLD) /* \_SB_.PCI0.LPCB.LNKD._CRS.RTLD */
                     }
 
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -2794,20 +2792,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                     {
-                        CreateWordField (Arg0, 0x01, IRQ0)
+                        CreateWordField (Arg0, One, IRQ0)
                         FindSetRightBit (IRQ0, Local0)
-                        Decrement (Local0)
-                        Store (Local0, PDRC)
+                        Local0--
+                        PDRC = Local0
                     }
                 }
 
                 Device (LNKE)
                 {
-                    Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
                     Name (_UID, 0x05)  // _UID: Unique ID
                     Method (_STA, 0, Serialized)  // _STA: Status
                     {
-                        If (And (PERC, 0x80))
+                        If ((PERC & 0x80))
                         {
                             Return (0x09)
                         }
@@ -2819,20 +2817,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                     Method (_DIS, 0, Serialized)  // _DIS: Disable Device
                     {
-                        Or (PERC, 0x80, PERC)
+                        PERC |= 0x80
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (RTLE, ResourceTemplate ()
                         {
-                            IRQ (Level, ActiveLow, Shared, _Y05)
+                            IRQ (Level, ActiveLow, Shared, )
                                 {}
                         })
-                        CreateWordField (RTLE, \_SB.PCI0.LPCB.LNKE._CRS._Y05._INT, IRQ0)  // _INT: Interrupts
-                        Store (Zero, IRQ0)
-                        ShiftLeft (0x01, And (PERC, 0x0F), IRQ0)
-                        Return (RTLE)
+                        CreateWordField (RTLE, One, IRQ0)
+                        IRQ0 = Zero
+                        IRQ0 = (One << (PERC & 0x0F))
+                        Return (RTLE) /* \_SB_.PCI0.LPCB.LNKE._CRS.RTLE */
                     }
 
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -2842,20 +2840,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                     {
-                        CreateWordField (Arg0, 0x01, IRQ0)
+                        CreateWordField (Arg0, One, IRQ0)
                         FindSetRightBit (IRQ0, Local0)
-                        Decrement (Local0)
-                        Store (Local0, PERC)
+                        Local0--
+                        PERC = Local0
                     }
                 }
 
                 Device (LNKF)
                 {
-                    Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
                     Name (_UID, 0x06)  // _UID: Unique ID
                     Method (_STA, 0, Serialized)  // _STA: Status
                     {
-                        If (And (PFRC, 0x80))
+                        If ((PFRC & 0x80))
                         {
                             Return (0x09)
                         }
@@ -2867,20 +2865,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                     Method (_DIS, 0, Serialized)  // _DIS: Disable Device
                     {
-                        Or (PFRC, 0x80, PFRC)
+                        PFRC |= 0x80
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (RTLF, ResourceTemplate ()
                         {
-                            IRQ (Level, ActiveLow, Shared, _Y06)
+                            IRQ (Level, ActiveLow, Shared, )
                                 {}
                         })
-                        CreateWordField (RTLF, \_SB.PCI0.LPCB.LNKF._CRS._Y06._INT, IRQ0)  // _INT: Interrupts
-                        Store (Zero, IRQ0)
-                        ShiftLeft (0x01, And (PFRC, 0x0F), IRQ0)
-                        Return (RTLF)
+                        CreateWordField (RTLF, One, IRQ0)
+                        IRQ0 = Zero
+                        IRQ0 = (One << (PFRC & 0x0F))
+                        Return (RTLF) /* \_SB_.PCI0.LPCB.LNKF._CRS.RTLF */
                     }
 
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -2890,20 +2888,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                     {
-                        CreateWordField (Arg0, 0x01, IRQ0)
+                        CreateWordField (Arg0, One, IRQ0)
                         FindSetRightBit (IRQ0, Local0)
-                        Decrement (Local0)
-                        Store (Local0, PFRC)
+                        Local0--
+                        PFRC = Local0
                     }
                 }
 
                 Device (LNKG)
                 {
-                    Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
                     Name (_UID, 0x07)  // _UID: Unique ID
                     Method (_STA, 0, Serialized)  // _STA: Status
                     {
-                        If (And (PGRC, 0x80))
+                        If ((PGRC & 0x80))
                         {
                             Return (0x09)
                         }
@@ -2915,20 +2913,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                     Method (_DIS, 0, Serialized)  // _DIS: Disable Device
                     {
-                        Or (PGRC, 0x80, PGRC)
+                        PGRC |= 0x80
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (RTLG, ResourceTemplate ()
                         {
-                            IRQ (Level, ActiveLow, Shared, _Y07)
+                            IRQ (Level, ActiveLow, Shared, )
                                 {}
                         })
-                        CreateWordField (RTLG, \_SB.PCI0.LPCB.LNKG._CRS._Y07._INT, IRQ0)  // _INT: Interrupts
-                        Store (Zero, IRQ0)
-                        ShiftLeft (0x01, And (PGRC, 0x0F), IRQ0)
-                        Return (RTLG)
+                        CreateWordField (RTLG, One, IRQ0)
+                        IRQ0 = Zero
+                        IRQ0 = (One << (PGRC & 0x0F))
+                        Return (RTLG) /* \_SB_.PCI0.LPCB.LNKG._CRS.RTLG */
                     }
 
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -2938,20 +2936,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                     {
-                        CreateWordField (Arg0, 0x01, IRQ0)
+                        CreateWordField (Arg0, One, IRQ0)
                         FindSetRightBit (IRQ0, Local0)
-                        Decrement (Local0)
-                        Store (Local0, PGRC)
+                        Local0--
+                        PGRC = Local0
                     }
                 }
 
                 Device (LNKH)
                 {
-                    Name (_HID, EisaId ("PNP0C0F"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C0F") /* PCI Interrupt Link Device */)  // _HID: Hardware ID
                     Name (_UID, 0x08)  // _UID: Unique ID
                     Method (_STA, 0, Serialized)  // _STA: Status
                     {
-                        If (And (PHRC, 0x80))
+                        If ((PHRC & 0x80))
                         {
                             Return (0x09)
                         }
@@ -2963,20 +2961,20 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                     Method (_DIS, 0, Serialized)  // _DIS: Disable Device
                     {
-                        Or (PHRC, 0x80, PHRC)
+                        PHRC |= 0x80
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         Name (RTLH, ResourceTemplate ()
                         {
-                            IRQ (Level, ActiveLow, Shared, _Y08)
+                            IRQ (Level, ActiveLow, Shared, )
                                 {}
                         })
-                        CreateWordField (RTLH, \_SB.PCI0.LPCB.LNKH._CRS._Y08._INT, IRQ0)  // _INT: Interrupts
-                        Store (Zero, IRQ0)
-                        ShiftLeft (0x01, And (PHRC, 0x0F), IRQ0)
-                        Return (RTLH)
+                        CreateWordField (RTLH, One, IRQ0)
+                        IRQ0 = Zero
+                        IRQ0 = (One << (PHRC & 0x0F))
+                        Return (RTLH) /* \_SB_.PCI0.LPCB.LNKH._CRS.RTLH */
                     }
 
                     Name (_PRS, ResourceTemplate ()  // _PRS: Possible Resource Settings
@@ -2986,10 +2984,10 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     })
                     Method (_SRS, 1, Serialized)  // _SRS: Set Resource Settings
                     {
-                        CreateWordField (Arg0, 0x01, IRQ0)
+                        CreateWordField (Arg0, One, IRQ0)
                         FindSetRightBit (IRQ0, Local0)
-                        Decrement (Local0)
-                        Store (Local0, PHRC)
+                        Local0--
+                        PHRC = Local0
                     }
                 }
 
@@ -3013,7 +3011,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (EC)
                 {
-                    Name (_HID, EisaId ("PNP0C09"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C09") /* Embedded Controller Device */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3035,8 +3033,8 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         0x1B, 
                         0x03
                     })
-                    Name (ECOK, 0x00)
-                    OperationRegion (ECOR, EmbeddedControl, 0x00, 0xFF)
+                    Name (ECOK, Zero)
+                    OperationRegion (ECOR, EmbeddedControl, Zero, 0xFF)
                     Field (ECOR, ByteAcc, Lock, Preserve)
                     {
                         ECVS,   8, 
@@ -3066,24 +3064,24 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         SMUX,   8
                     }
 
-                    Method (_Q5A, 0, NotSerialized)  // _Qxx: EC Query
+                    Method (_Q5A, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                     {
-                        Notify (\_SB.PWRB, 0x80)
+                        Notify (PWRB, 0x80) // Status Change
                     }
 
-                    Method (_Q80, 0, NotSerialized)  // _Qxx: EC Query
+                    Method (_Q80, 0, NotSerialized)  // _Qxx: EC Query, xx=0x00-0xFF
                     {
                         PNOT ()
                     }
 
                     Method (_REG, 2, NotSerialized)  // _REG: Region Availability
                     {
-                        If (LOr (LEqual (Arg0, 0x03), LGreaterEqual (OSYS, 0x07D6)))
+                        If (((Arg0 == 0x03) || (OSYS >= 0x07D6)))
                         {
-                            Store (Arg1, ECOK)
-                            If (LEqual (Arg1, 0x01))
+                            ECOK = Arg1
+                            If ((Arg1 == One))
                             {
-                                Store (0x00, ECSS)
+                                ECSS = Zero
                             }
                         }
                     }
@@ -3091,7 +3089,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (DMAC)
                 {
-                    Name (_HID, EisaId ("PNP0200"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0200") /* PC-class DMA Controller */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3119,7 +3117,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (FWHD)
                 {
-                    Name (_HID, EisaId ("INT0800"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("INT0800") /* Intel 82802 Firmware Hub Device */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         Memory32Fixed (ReadOnly,
@@ -3131,7 +3129,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (HPET)
                 {
-                    Name (_HID, EisaId ("PNP0103"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0103") /* HPET System Timer */)  // _HID: Hardware ID
                     Name (BUF0, ResourceTemplate ()
                     {
                         IRQNoFlags ()
@@ -3141,11 +3139,11 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         Memory32Fixed (ReadOnly,
                             0xFED00000,         // Address Base
                             0x00100000,         // Address Length
-                            _Y09)
+                            _Y01)
                     })
                     Method (_STA, 0, NotSerialized)  // _STA: Status
                     {
-                        If (LGreaterEqual (OSYS, 0x07D1))
+                        If ((OSYS >= 0x07D1))
                         {
                             If (HPAE)
                             {
@@ -3157,37 +3155,37 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             Return (0x0B)
                         }
 
-                        Return (0x00)
+                        Return (Zero)
                     }
 
                     Method (_CRS, 0, Serialized)  // _CRS: Current Resource Settings
                     {
                         If (HPAE)
                         {
-                            CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y09._BAS, HPT0)  // _BAS: Base Address
-                            If (LEqual (HPAS, 0x01))
+                            CreateDWordField (BUF0, \_SB.PCI0.LPCB.HPET._Y01._BAS, HPT0)  // _BAS: Base Address
+                            If ((HPAS == One))
                             {
-                                Store (0xFED10000, HPT0)
+                                HPT0 = 0xFED10000
                             }
 
-                            If (LEqual (HPAS, 0x02))
+                            If ((HPAS == 0x02))
                             {
-                                Store (0xFED20000, HPT0)
+                                HPT0 = 0xFED20000
                             }
 
-                            If (LEqual (HPAS, 0x03))
+                            If ((HPAS == 0x03))
                             {
-                                Store (0xFED30000, HPT0)
+                                HPT0 = 0xFED30000
                             }
                         }
 
-                        Return (BUF0)
+                        Return (BUF0) /* \_SB_.PCI0.LPCB.HPET.BUF0 */
                     }
                 }
 
                 Device (IPIC)
                 {
-                    Name (_HID, EisaId ("PNP0000"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0000") /* 8259-compatible Programmable Interrupt Controller */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3215,7 +3213,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (MATH)
                 {
-                    Name (_HID, EisaId ("PNP0C04"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C04") /* x87-compatible Floating Point Processing Unit */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3231,7 +3229,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (LDRC)
                 {
-                    Name (_HID, EisaId ("PNP0C02"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0C02") /* PNP Motherboard Resources */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3317,7 +3315,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (RTC)
                 {
-                    Name (_HID, EisaId ("PNP0B00"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0B00") /* AT Real-Time Clock */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3331,7 +3329,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Device (TIMR)
                 {
-                    Name (_HID, EisaId ("PNP0100"))  // _HID: Hardware ID
+                    Name (_HID, EisaId ("PNP0100") /* PC-class System Timer */)  // _HID: Hardware ID
                     Name (_CRS, ResourceTemplate ()  // _CRS: Current Resource Settings
                     {
                         IO (Decode16,
@@ -3417,25 +3415,25 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (GPIO, 4, NotSerialized)
                 {
-                    If (LEqual (Or (Arg0, Arg1), 0x00))
+                    If (((Arg0 | Arg1) == Zero))
                     {
-                        Return (0xFFFFFFFF)
+                        Return (Ones)
                     }
-                    ElseIf (And (LEqual (Arg0, 0x00), LEqual (Arg1, 0x01)))
+                    ElseIf (((Arg0 == Zero) & (Arg1 == One)))
                     {
                         Return (0x0384)
                     }
 
-                    Return (Multiply (0x1E, Subtract (0x09, Add (Arg2, Arg3))))
+                    Return ((0x1E * (0x09 - (Arg2 + Arg3))))
                 }
 
                 Method (GDMA, 5, NotSerialized)
                 {
-                    If (LEqual (Arg0, 0x01))
+                    If ((Arg0 == One))
                     {
-                        If (LEqual (Arg1, 0x01))
+                        If ((Arg1 == One))
                         {
-                            If (LEqual (Arg4, 0x02))
+                            If ((Arg4 == 0x02))
                             {
                                 Return (0x0F)
                             }
@@ -3443,12 +3441,12 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             Return (0x14)
                         }
 
-                        If (LEqual (Arg2, 0x01))
+                        If ((Arg2 == One))
                         {
-                            Return (Multiply (0x0F, Subtract (0x04, Arg4)))
+                            Return ((0x0F * (0x04 - Arg4)))
                         }
 
-                        Return (Multiply (0x1E, Subtract (0x04, Arg4)))
+                        Return ((0x1E * (0x04 - Arg4)))
                     }
 
                     Return (0xFFFFFFFE)
@@ -3456,12 +3454,12 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (SFLG, 5, NotSerialized)
                 {
-                    Store (0x00, Local0)
-                    Or (Arg1, Local0, Local0)
-                    Or (ShiftLeft (Arg0, 0x01), Local0, Local0)
-                    Or (ShiftLeft (Arg2, 0x03), Local0, Local0)
-                    Or (ShiftLeft (Arg3, 0x02), Local0, Local0)
-                    Or (ShiftLeft (Arg4, 0x04), Local0, Local0)
+                    Local0 = Zero
+                    Local0 |= Arg1
+                    Local0 |= (Arg0 << One)
+                    Local0 |= (Arg2 << 0x03)
+                    Local0 |= (Arg3 << 0x02)
+                    Local0 |= (Arg4 << 0x04)
                     Return (Local0)
                 }
 
@@ -3469,117 +3467,117 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     Name (PBUF, Buffer (0x05)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00                   
+                         0x00, 0x00, 0x00, 0x00, 0x00                     // .....
                     })
-                    CreateByteField (PBUF, 0x00, RCT)
-                    CreateByteField (PBUF, 0x01, ISP)
+                    CreateByteField (PBUF, Zero, RCT)
+                    CreateByteField (PBUF, One, ISP)
                     CreateByteField (PBUF, 0x02, FAST)
                     CreateByteField (PBUF, 0x03, DMAE)
                     CreateByteField (PBUF, 0x04, PIOT)
-                    If (LOr (LEqual (Arg0, 0x00), LEqual (Arg0, 0xFFFFFFFF)))
+                    If (((Arg0 == Zero) || (Arg0 == Ones)))
                     {
-                        Return (PBUF)
+                        Return (PBUF) /* \_SB_.PCI0.SATA.SPIO.PBUF */
                     }
 
-                    If (LGreater (Arg0, 0xF0))
+                    If ((Arg0 > 0xF0))
                     {
-                        Store (0x01, DMAE)
-                        Store (0x00, PIOT)
+                        DMAE = One
+                        PIOT = Zero
                     }
                     Else
                     {
-                        Store (0x01, FAST)
-                        If (And (Arg1, 0x02))
+                        FAST = One
+                        If ((Arg1 & 0x02))
                         {
-                            If (And (LEqual (Arg0, 0x78), And (Arg2, 0x02)))
+                            If (((Arg0 == 0x78) & (Arg2 & 0x02)))
                             {
-                                Store (0x03, RCT)
-                                Store (0x02, ISP)
-                                Store (0x04, PIOT)
+                                RCT = 0x03
+                                ISP = 0x02
+                                PIOT = 0x04
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0xB4), And (Arg2, 0x01)))
+                            ElseIf (((Arg0 <= 0xB4) & (Arg2 & One)))
                             {
-                                Store (0x01, RCT)
-                                Store (0x02, ISP)
-                                Store (0x03, PIOT)
+                                RCT = One
+                                ISP = 0x02
+                                PIOT = 0x03
                             }
                             Else
                             {
-                                Store (0x00, RCT)
-                                Store (0x01, ISP)
-                                Store (0x02, PIOT)
+                                RCT = Zero
+                                ISP = One
+                                PIOT = 0x02
                             }
                         }
                     }
 
-                    Return (PBUF)
+                    Return (PBUF) /* \_SB_.PCI0.SATA.SPIO.PBUF */
                 }
 
                 Method (SDMA, 3, NotSerialized)
                 {
                     Name (PBUF, Buffer (0x05)
                     {
-                         0x00, 0x00, 0x00, 0x00                         
+                         0x00, 0x00, 0x00, 0x00                           // ....
                     })
-                    CreateByteField (PBUF, 0x00, PCT)
-                    CreateByteField (PBUF, 0x01, PCB)
+                    CreateByteField (PBUF, Zero, PCT)
+                    CreateByteField (PBUF, One, PCB)
                     CreateByteField (PBUF, 0x02, UDMT)
                     CreateByteField (PBUF, 0x03, UDME)
                     CreateByteField (PBUF, 0x04, DMAT)
-                    If (LOr (LEqual (Arg0, 0x00), LEqual (Arg0, 0xFFFFFFFF)))
+                    If (((Arg0 == Zero) || (Arg0 == Ones)))
                     {
-                        Return (PBUF)
+                        Return (PBUF) /* \_SB_.PCI0.SATA.SDMA.PBUF */
                     }
 
-                    If (LLessEqual (Arg0, 0x78))
+                    If ((Arg0 <= 0x78))
                     {
-                        If (And (Arg1, 0x04))
+                        If ((Arg1 & 0x04))
                         {
-                            Store (0x01, UDME)
-                            If (And (LEqual (Arg0, 0x0F), And (Arg2, 0x40)))
+                            UDME = One
+                            If (((Arg0 == 0x0F) & (Arg2 & 0x40)))
                             {
-                                Store (0x01, UDMT)
-                                Store (0x01, PCB)
-                                Store (0x02, PCT)
-                                Store (0x06, DMAT)
+                                UDMT = One
+                                PCB = One
+                                PCT = 0x02
+                                DMAT = 0x06
                             }
-                            ElseIf (And (LEqual (Arg0, 0x14), And (Arg2, 0x20)))
+                            ElseIf (((Arg0 == 0x14) & (Arg2 & 0x20)))
                             {
-                                Store (0x01, UDMT)
-                                Store (0x01, PCB)
-                                Store (0x01, PCT)
-                                Store (0x05, DMAT)
+                                UDMT = One
+                                PCB = One
+                                PCT = One
+                                DMAT = 0x05
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x1E), And (Arg2, 0x10)))
+                            ElseIf (((Arg0 <= 0x1E) & (Arg2 & 0x10)))
                             {
-                                Store (0x01, PCB)
-                                Store (0x02, PCT)
-                                Store (0x04, DMAT)
+                                PCB = One
+                                PCT = 0x02
+                                DMAT = 0x04
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x2D), And (Arg2, 0x08)))
+                            ElseIf (((Arg0 <= 0x2D) & (Arg2 & 0x08)))
                             {
-                                Store (0x01, PCB)
-                                Store (0x01, PCT)
-                                Store (0x03, DMAT)
+                                PCB = One
+                                PCT = One
+                                DMAT = 0x03
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x3C), And (Arg2, 0x04)))
+                            ElseIf (((Arg0 <= 0x3C) & (Arg2 & 0x04)))
                             {
-                                Store (0x02, PCT)
-                                Store (0x02, DMAT)
+                                PCT = 0x02
+                                DMAT = 0x02
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x5A), And (Arg2, 0x02)))
+                            ElseIf (((Arg0 <= 0x5A) & (Arg2 & 0x02)))
                             {
-                                Store (0x01, PCT)
-                                Store (0x01, DMAT)
+                                PCT = One
+                                DMAT = One
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x78), And (Arg2, 0x01)))
+                            ElseIf (((Arg0 <= 0x78) & (Arg2 & One)))
                             {
-                                Store (0x00, DMAT)
+                                DMAT = Zero
                             }
                         }
                     }
 
-                    Return (PBUF)
+                    Return (PBUF) /* \_SB_.PCI0.SATA.SDMA.PBUF */
                 }
             }
 
@@ -3650,25 +3648,25 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (GPIO, 4, NotSerialized)
                 {
-                    If (LEqual (Or (Arg0, Arg1), 0x00))
+                    If (((Arg0 | Arg1) == Zero))
                     {
-                        Return (0xFFFFFFFF)
+                        Return (Ones)
                     }
-                    ElseIf (And (LEqual (Arg0, 0x00), LEqual (Arg1, 0x01)))
+                    ElseIf (((Arg0 == Zero) & (Arg1 == One)))
                     {
                         Return (0x0384)
                     }
 
-                    Return (Multiply (0x1E, Subtract (0x09, Add (Arg2, Arg3))))
+                    Return ((0x1E * (0x09 - (Arg2 + Arg3))))
                 }
 
                 Method (GDMA, 5, NotSerialized)
                 {
-                    If (LEqual (Arg0, 0x01))
+                    If ((Arg0 == One))
                     {
-                        If (LEqual (Arg1, 0x01))
+                        If ((Arg1 == One))
                         {
-                            If (LEqual (Arg4, 0x02))
+                            If ((Arg4 == 0x02))
                             {
                                 Return (0x0F)
                             }
@@ -3676,12 +3674,12 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             Return (0x14)
                         }
 
-                        If (LEqual (Arg2, 0x01))
+                        If ((Arg2 == One))
                         {
-                            Return (Multiply (0x0F, Subtract (0x04, Arg4)))
+                            Return ((0x0F * (0x04 - Arg4)))
                         }
 
-                        Return (Multiply (0x1E, Subtract (0x04, Arg4)))
+                        Return ((0x1E * (0x04 - Arg4)))
                     }
 
                     Return (0xFFFFFFFE)
@@ -3689,12 +3687,12 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
 
                 Method (SFLG, 5, NotSerialized)
                 {
-                    Store (0x00, Local0)
-                    Or (Arg1, Local0, Local0)
-                    Or (ShiftLeft (Arg0, 0x01), Local0, Local0)
-                    Or (ShiftLeft (Arg2, 0x03), Local0, Local0)
-                    Or (ShiftLeft (Arg3, 0x02), Local0, Local0)
-                    Or (ShiftLeft (Arg4, 0x04), Local0, Local0)
+                    Local0 = Zero
+                    Local0 |= Arg1
+                    Local0 |= (Arg0 << One)
+                    Local0 |= (Arg2 << 0x03)
+                    Local0 |= (Arg3 << 0x02)
+                    Local0 |= (Arg4 << 0x04)
                     Return (Local0)
                 }
 
@@ -3702,117 +3700,117 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     Name (PBUF, Buffer (0x05)
                     {
-                         0x00, 0x00, 0x00, 0x00, 0x00                   
+                         0x00, 0x00, 0x00, 0x00, 0x00                     // .....
                     })
-                    CreateByteField (PBUF, 0x00, RCT)
-                    CreateByteField (PBUF, 0x01, ISP)
+                    CreateByteField (PBUF, Zero, RCT)
+                    CreateByteField (PBUF, One, ISP)
                     CreateByteField (PBUF, 0x02, FAST)
                     CreateByteField (PBUF, 0x03, DMAE)
                     CreateByteField (PBUF, 0x04, PIOT)
-                    If (LOr (LEqual (Arg0, 0x00), LEqual (Arg0, 0xFFFFFFFF)))
+                    If (((Arg0 == Zero) || (Arg0 == Ones)))
                     {
-                        Return (PBUF)
+                        Return (PBUF) /* \_SB_.PCI0.SSAT.SPIO.PBUF */
                     }
 
-                    If (LGreater (Arg0, 0xF0))
+                    If ((Arg0 > 0xF0))
                     {
-                        Store (0x01, DMAE)
-                        Store (0x00, PIOT)
+                        DMAE = One
+                        PIOT = Zero
                     }
                     Else
                     {
-                        Store (0x01, FAST)
-                        If (And (Arg1, 0x02))
+                        FAST = One
+                        If ((Arg1 & 0x02))
                         {
-                            If (And (LEqual (Arg0, 0x78), And (Arg2, 0x02)))
+                            If (((Arg0 == 0x78) & (Arg2 & 0x02)))
                             {
-                                Store (0x03, RCT)
-                                Store (0x02, ISP)
-                                Store (0x04, PIOT)
+                                RCT = 0x03
+                                ISP = 0x02
+                                PIOT = 0x04
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0xB4), And (Arg2, 0x01)))
+                            ElseIf (((Arg0 <= 0xB4) & (Arg2 & One)))
                             {
-                                Store (0x01, RCT)
-                                Store (0x02, ISP)
-                                Store (0x03, PIOT)
+                                RCT = One
+                                ISP = 0x02
+                                PIOT = 0x03
                             }
                             Else
                             {
-                                Store (0x00, RCT)
-                                Store (0x01, ISP)
-                                Store (0x02, PIOT)
+                                RCT = Zero
+                                ISP = One
+                                PIOT = 0x02
                             }
                         }
                     }
 
-                    Return (PBUF)
+                    Return (PBUF) /* \_SB_.PCI0.SSAT.SPIO.PBUF */
                 }
 
                 Method (SDMA, 3, NotSerialized)
                 {
                     Name (PBUF, Buffer (0x05)
                     {
-                         0x00, 0x00, 0x00, 0x00                         
+                         0x00, 0x00, 0x00, 0x00                           // ....
                     })
-                    CreateByteField (PBUF, 0x00, PCT)
-                    CreateByteField (PBUF, 0x01, PCB)
+                    CreateByteField (PBUF, Zero, PCT)
+                    CreateByteField (PBUF, One, PCB)
                     CreateByteField (PBUF, 0x02, UDMT)
                     CreateByteField (PBUF, 0x03, UDME)
                     CreateByteField (PBUF, 0x04, DMAT)
-                    If (LOr (LEqual (Arg0, 0x00), LEqual (Arg0, 0xFFFFFFFF)))
+                    If (((Arg0 == Zero) || (Arg0 == Ones)))
                     {
-                        Return (PBUF)
+                        Return (PBUF) /* \_SB_.PCI0.SSAT.SDMA.PBUF */
                     }
 
-                    If (LLessEqual (Arg0, 0x78))
+                    If ((Arg0 <= 0x78))
                     {
-                        If (And (Arg1, 0x04))
+                        If ((Arg1 & 0x04))
                         {
-                            Store (0x01, UDME)
-                            If (And (LEqual (Arg0, 0x0F), And (Arg2, 0x40)))
+                            UDME = One
+                            If (((Arg0 == 0x0F) & (Arg2 & 0x40)))
                             {
-                                Store (0x01, UDMT)
-                                Store (0x01, PCB)
-                                Store (0x02, PCT)
-                                Store (0x06, DMAT)
+                                UDMT = One
+                                PCB = One
+                                PCT = 0x02
+                                DMAT = 0x06
                             }
-                            ElseIf (And (LEqual (Arg0, 0x14), And (Arg2, 0x20)))
+                            ElseIf (((Arg0 == 0x14) & (Arg2 & 0x20)))
                             {
-                                Store (0x01, UDMT)
-                                Store (0x01, PCB)
-                                Store (0x01, PCT)
-                                Store (0x05, DMAT)
+                                UDMT = One
+                                PCB = One
+                                PCT = One
+                                DMAT = 0x05
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x1E), And (Arg2, 0x10)))
+                            ElseIf (((Arg0 <= 0x1E) & (Arg2 & 0x10)))
                             {
-                                Store (0x01, PCB)
-                                Store (0x02, PCT)
-                                Store (0x04, DMAT)
+                                PCB = One
+                                PCT = 0x02
+                                DMAT = 0x04
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x2D), And (Arg2, 0x08)))
+                            ElseIf (((Arg0 <= 0x2D) & (Arg2 & 0x08)))
                             {
-                                Store (0x01, PCB)
-                                Store (0x01, PCT)
-                                Store (0x03, DMAT)
+                                PCB = One
+                                PCT = One
+                                DMAT = 0x03
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x3C), And (Arg2, 0x04)))
+                            ElseIf (((Arg0 <= 0x3C) & (Arg2 & 0x04)))
                             {
-                                Store (0x02, PCT)
-                                Store (0x02, DMAT)
+                                PCT = 0x02
+                                DMAT = 0x02
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x5A), And (Arg2, 0x02)))
+                            ElseIf (((Arg0 <= 0x5A) & (Arg2 & 0x02)))
                             {
-                                Store (0x01, PCT)
-                                Store (0x01, DMAT)
+                                PCT = One
+                                DMAT = One
                             }
-                            ElseIf (And (LLessEqual (Arg0, 0x78), And (Arg2, 0x01)))
+                            ElseIf (((Arg0 <= 0x78) & (Arg2 & One)))
                             {
-                                Store (0x00, DMAT)
+                                DMAT = Zero
                             }
                         }
                     }
 
-                    Return (PBUF)
+                    Return (PBUF) /* \_SB_.PCI0.SSAT.SDMA.PBUF */
                 }
             }
 
@@ -3848,37 +3846,37 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     SDAT,   16
                 }
 
-                Name (SBOK, 0x00)
+                Name (SBOK, Zero)
                 Method (ENAB, 0, NotSerialized)
                 {
-                    Store (0x01, IOSE)
-                    Store (One, SBOK)
+                    IOSE = One
+                    SBOK = One
                 }
 
                 Method (DISB, 0, NotSerialized)
                 {
-                    Store (Zero, SBOK)
+                    SBOK = Zero
                 }
 
                 Method (SSXB, 2, Serialized)
                 {
                     If (STRT ())
                     {
-                        Return (0x00)
+                        Return (Zero)
                     }
 
-                    Store (0x00, I2CE)
-                    Store (0xBF, HSTS)
-                    Store (Arg0, TXSA)
-                    Store (Arg1, HCOM)
-                    Store (0x48, HCON)
+                    I2CE = Zero
+                    HSTS = 0xBF
+                    TXSA = Arg0
+                    HCOM = Arg1
+                    HCON = 0x48
                     If (COMP ())
                     {
-                        Or (HSTS, 0xFF, HSTS)
-                        Return (0x01)
+                        HSTS |= 0xFF
+                        Return (One)
                     }
 
-                    Return (0x00)
+                    Return (Zero)
                 }
 
                 Method (SRXB, 1, Serialized)
@@ -3888,14 +3886,14 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         Return (0xFFFF)
                     }
 
-                    Store (0x00, I2CE)
-                    Store (0xBF, HSTS)
-                    Store (Or (Arg0, 0x01), TXSA)
-                    Store (0x44, HCON)
+                    I2CE = Zero
+                    HSTS = 0xBF
+                    TXSA = (Arg0 | One)
+                    HCON = 0x44
                     If (COMP ())
                     {
-                        Or (HSTS, 0xFF, HSTS)
-                        Return (DAT0)
+                        HSTS |= 0xFF
+                        Return (DAT0) /* \_SB_.PCI0.SBUS.DAT0 */
                     }
 
                     Return (0xFFFF)
@@ -3905,22 +3903,22 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     If (STRT ())
                     {
-                        Return (0x00)
+                        Return (Zero)
                     }
 
-                    Store (0x00, I2CE)
-                    Store (0xBF, HSTS)
-                    Store (Arg0, TXSA)
-                    Store (Arg1, HCOM)
-                    Store (Arg2, DAT0)
-                    Store (0x48, HCON)
+                    I2CE = Zero
+                    HSTS = 0xBF
+                    TXSA = Arg0
+                    HCOM = Arg1
+                    DAT0 = Arg2
+                    HCON = 0x48
                     If (COMP ())
                     {
-                        Or (HSTS, 0xFF, HSTS)
-                        Return (0x01)
+                        HSTS |= 0xFF
+                        Return (One)
                     }
 
-                    Return (0x00)
+                    Return (Zero)
                 }
 
                 Method (SRDB, 2, Serialized)
@@ -3930,15 +3928,15 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         Return (0xFFFF)
                     }
 
-                    Store (0x00, I2CE)
-                    Store (0xBF, HSTS)
-                    Store (Or (Arg0, 0x01), TXSA)
-                    Store (Arg1, HCOM)
-                    Store (0x48, HCON)
+                    I2CE = Zero
+                    HSTS = 0xBF
+                    TXSA = (Arg0 | One)
+                    HCOM = Arg1
+                    HCON = 0x48
                     If (COMP ())
                     {
-                        Or (HSTS, 0xFF, HSTS)
-                        Return (DAT0)
+                        HSTS |= 0xFF
+                        Return (DAT0) /* \_SB_.PCI0.SBUS.DAT0 */
                     }
 
                     Return (0xFFFF)
@@ -3948,47 +3946,47 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                 {
                     If (STRT ())
                     {
-                        Return (0x00)
+                        Return (Zero)
                     }
 
-                    Store (Arg3, I2CE)
-                    Store (0xBF, HSTS)
-                    Store (Arg0, TXSA)
-                    Store (Arg1, HCOM)
-                    Store (SizeOf (Arg2), DAT0)
-                    Store (0x00, Local1)
-                    Store (DerefOf (Index (Arg2, 0x00)), HBDR)
-                    Store (0x54, HCON)
-                    While (LGreater (SizeOf (Arg2), Local1))
+                    I2CE = Arg3
+                    HSTS = 0xBF
+                    TXSA = Arg0
+                    HCOM = Arg1
+                    DAT0 = SizeOf (Arg2)
+                    Local1 = Zero
+                    HBDR = DerefOf (Arg2 [Zero])
+                    HCON = 0x54
+                    While ((SizeOf (Arg2) > Local1))
                     {
-                        Store (0x0FA0, Local0)
-                        While (LAnd (LNot (And (HSTS, 0x80)), Local0))
+                        Local0 = 0x0FA0
+                        While ((!(HSTS & 0x80) && Local0))
                         {
-                            Decrement (Local0)
+                            Local0--
                             Stall (0x32)
                         }
 
-                        If (LNot (Local0))
+                        If (!Local0)
                         {
                             KILL ()
-                            Return (0x00)
+                            Return (Zero)
                         }
 
-                        Store (0x80, HSTS)
-                        Increment (Local1)
-                        If (LGreater (SizeOf (Arg2), Local1))
+                        HSTS = 0x80
+                        Local1++
+                        If ((SizeOf (Arg2) > Local1))
                         {
-                            Store (DerefOf (Index (Arg2, Local1)), HBDR)
+                            HBDR = DerefOf (Arg2 [Local1])
                         }
                     }
 
                     If (COMP ())
                     {
-                        Or (HSTS, 0xFF, HSTS)
-                        Return (0x01)
+                        HSTS |= 0xFF
+                        Return (One)
                     }
 
-                    Return (0x00)
+                    Return (Zero)
                 }
 
                 Method (SBLR, 3, Serialized)
@@ -3996,218 +3994,218 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     Name (TBUF, Buffer (0x0100){})
                     If (STRT ())
                     {
-                        Return (0x00)
+                        Return (Zero)
                     }
 
-                    Store (Arg2, I2CE)
-                    Store (0xBF, HSTS)
-                    Store (Or (Arg0, 0x01), TXSA)
-                    Store (Arg1, HCOM)
-                    Store (0x54, HCON)
-                    Store (0x0FA0, Local0)
-                    While (LAnd (LNot (And (HSTS, 0x80)), Local0))
+                    I2CE = Arg2
+                    HSTS = 0xBF
+                    TXSA = (Arg0 | One)
+                    HCOM = Arg1
+                    HCON = 0x54
+                    Local0 = 0x0FA0
+                    While ((!(HSTS & 0x80) && Local0))
                     {
-                        Decrement (Local0)
+                        Local0--
                         Stall (0x32)
                     }
 
-                    If (LNot (Local0))
+                    If (!Local0)
                     {
                         KILL ()
-                        Return (0x00)
+                        Return (Zero)
                     }
 
-                    Store (DAT0, Index (TBUF, 0x00))
-                    Store (0x80, HSTS)
-                    Store (0x01, Local1)
-                    While (LLess (Local1, DerefOf (Index (TBUF, 0x00))))
+                    TBUF [Zero] = DAT0 /* \_SB_.PCI0.SBUS.DAT0 */
+                    HSTS = 0x80
+                    Local1 = One
+                    While ((Local1 < DerefOf (TBUF [Zero])))
                     {
-                        Store (0x0FA0, Local0)
-                        While (LAnd (LNot (And (HSTS, 0x80)), Local0))
+                        Local0 = 0x0FA0
+                        While ((!(HSTS & 0x80) && Local0))
                         {
-                            Decrement (Local0)
+                            Local0--
                             Stall (0x32)
                         }
 
-                        If (LNot (Local0))
+                        If (!Local0)
                         {
                             KILL ()
-                            Return (0x00)
+                            Return (Zero)
                         }
 
-                        Store (HBDR, Index (TBUF, Local1))
-                        Store (0x80, HSTS)
-                        Increment (Local1)
+                        TBUF [Local1] = HBDR /* \_SB_.PCI0.SBUS.HBDR */
+                        HSTS = 0x80
+                        Local1++
                     }
 
                     If (COMP ())
                     {
-                        Or (HSTS, 0xFF, HSTS)
-                        Return (TBUF)
+                        HSTS |= 0xFF
+                        Return (TBUF) /* \_SB_.PCI0.SBUS.SBLR.TBUF */
                     }
 
-                    Return (0x00)
+                    Return (Zero)
                 }
 
                 Method (STRT, 0, Serialized)
                 {
-                    Store (0xC8, Local0)
+                    Local0 = 0xC8
                     While (Local0)
                     {
-                        If (And (HSTS, 0x40))
+                        If ((HSTS & 0x40))
                         {
-                            Decrement (Local0)
-                            Sleep (0x01)
-                            If (LEqual (Local0, 0x00))
+                            Local0--
+                            Sleep (One)
+                            If ((Local0 == Zero))
                             {
-                                Return (0x01)
+                                Return (One)
                             }
                         }
                         Else
                         {
-                            Store (0x00, Local0)
+                            Local0 = Zero
                         }
                     }
 
-                    Store (0x0FA0, Local0)
+                    Local0 = 0x0FA0
                     While (Local0)
                     {
-                        If (And (HSTS, 0x01))
+                        If ((HSTS & One))
                         {
-                            Decrement (Local0)
+                            Local0--
                             Stall (0x32)
-                            If (LEqual (Local0, 0x00))
+                            If ((Local0 == Zero))
                             {
                                 KILL ()
                             }
                         }
                         Else
                         {
-                            Return (0x00)
+                            Return (Zero)
                         }
                     }
 
-                    Return (0x01)
+                    Return (One)
                 }
 
                 Method (COMP, 0, Serialized)
                 {
-                    Store (0x0FA0, Local0)
+                    Local0 = 0x0FA0
                     While (Local0)
                     {
-                        If (And (HSTS, 0x02))
+                        If ((HSTS & 0x02))
                         {
-                            Return (0x01)
+                            Return (One)
                         }
                         Else
                         {
-                            Decrement (Local0)
+                            Local0--
                             Stall (0x32)
-                            If (LEqual (Local0, 0x00))
+                            If ((Local0 == Zero))
                             {
                                 KILL ()
                             }
                         }
                     }
 
-                    Return (0x00)
+                    Return (Zero)
                 }
 
                 Method (KILL, 0, Serialized)
                 {
-                    Or (HCON, 0x02, HCON)
-                    Or (HSTS, 0xFF, HSTS)
+                    HCON |= 0x02
+                    HSTS |= 0xFF
                 }
 
                 Device (BUS0)
                 {
                     Name (_CID, "smbus")  // _CID: Compatible ID
-                    Name (_ADR, 0x00)  // _ADR: Address
+                    Name (_ADR, Zero)  // _ADR: Address
                     Device (MKY0)
                     {
-                        Name (_ADR, 0x00)  // _ADR: Address
+                        Name (_ADR, Zero)  // _ADR: Address
                         Name (_CID, "mikey")  // _CID: Compatible ID
                         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                         {
-                            Store (Package (0x07)
+                            Local0 = Package (0x07)
                                 {
                                     "refnum", 
-                                    0x00, 
+                                    Zero, 
                                     "address", 
                                     0x39, 
                                     "device-id", 
                                     0x0CCB, 
-                                    Buffer (0x01)
+                                    Buffer (One)
                                     {
-                                         0x00                                           
+                                         0x00                                             // .
                                     }
-                                }, Local0)
+                                }
                             DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                             Return (Local0)
                         }
 
                         Method (H1EN, 1, Serialized)
                         {
-                            If (LLessEqual (Arg0, 0x01))
+                            If ((Arg0 <= One))
                             {
-                                If (LEqual (Arg0, 0x01))
+                                If ((Arg0 == One))
                                 {
-                                    Or (GL04, 0x04, GL04)
+                                    GL04 |= 0x04
                                 }
                                 Else
                                 {
-                                    And (GL04, 0xFB, GL04)
+                                    GL04 &= 0xFB
                                 }
                             }
                         }
 
                         Method (H1IL, 0, Serialized)
                         {
-                            ShiftRight (And (GL00, 0x02), 0x01, Local0)
+                            Local0 = ((GL00 & 0x02) >> One)
                             Return (Local0)
                         }
 
                         Method (H1IP, 1, Serialized)
                         {
-                            Store (Arg0, Local0)
-                            If (LLessEqual (Arg0, 0x01))
+                            Local0 = Arg0
+                            If ((Arg0 <= One))
                             {
-                                Not (Arg0, Arg0)
-                                Store (Arg0, GI01)
+                                Arg0 = ~Arg0
+                                GI01 = Arg0
                             }
                         }
 
                         Name (H1IN, 0x11)
                         Scope (\_GPE)
                         {
-                            Method (_L11, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+                            Method (_L11, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
                             {
-                                Notify (\_SB.PCI0.SBUS.BUS0.MKY0, 0x80)
+                                Notify (\_SB.PCI0.SBUS.BUS0.MKY0, 0x80) // Status Change
                             }
                         }
 
                         Method (P1IL, 0, Serialized)
                         {
-                            ShiftRight (And (GL00, 0x40), 0x06, Local0)
+                            Local0 = ((GL00 & 0x40) >> 0x06)
                             Return (Local0)
                         }
 
                         Method (P1IP, 1, Serialized)
                         {
-                            If (LLessEqual (Arg0, 0x01))
+                            If ((Arg0 <= One))
                             {
-                                Not (Arg0, Arg0)
-                                Store (Arg0, GI06)
+                                Arg0 = ~Arg0
+                                GI06 = Arg0
                             }
                         }
 
                         Name (P1IN, 0x16)
                         Scope (\_GPE)
                         {
-                            Method (_L16, 0, NotSerialized)  // _Lxx: Level-Triggered GPE
+                            Method (_L16, 0, NotSerialized)  // _Lxx: Level-Triggered GPE, xx=0x00-0xFF
                             {
-                                XOr (GI06, 0x01, GI06)
-                                Notify (\_SB.PCI0.SBUS.BUS0.MKY0, 0x81)
+                                GI06 ^= One
+                                Notify (\_SB.PCI0.SBUS.BUS0.MKY0, 0x81) // Information Change
                             }
                         }
                     }
@@ -4218,775 +4216,826 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                         Name (_CID, "diagsvault")  // _CID: Compatible ID
                         Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
                         {
-                            Store (Package (0x03)
+                            Local0 = Package (0x03)
                                 {
                                     "address", 
                                     0x57, 
-                                    Buffer (0x01)
+                                    Buffer (One)
                                     {
-                                         0x00                                           
+                                         0x00                                             // .
                                     }
-                                }, Local0)
+                                }
                             DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
                             Return (Local0)
                         }
                     }
                 }
             }
-         Device (IOU2)
-        {
-            Name (_ADR, 0x00010000)  // _ADR: Address
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-            {
-                0x09, 
-                0x04
-            })
-            OperationRegion (P1XS, PCI_Config, 0x40, 0xE0)
-            Field (P1XS, AnyAcc, NoLock, WriteAsZeros)
-            {
-                Offset (0xA4), 
-                    ,   15, 
-                PSP9,   1
-            }
 
-            Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+            Device (IOU2)
             {
-                If (\GPIC)
+                Name (_ADR, 0x00010000)  // _ADR: Address
+                Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x04)
-                    {
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x00, 
-                            0x00, 
-                            0x10
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x01, 
-                            0x00, 
-                            0x11
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x02, 
-                            0x00, 
-                            0x12
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x03, 
-                            0x00, 
-                            0x13
-                        }
-                    })
-                }
-                Else
+                    0x09, 
+                    0x04
+                })
+                OperationRegion (P1XS, PCI_Config, 0x40, 0xE0)
+                Field (P1XS, AnyAcc, NoLock, WriteAsZeros)
                 {
-                    Return (Package (0x04)
-                    {
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
-                        }
-                    })
+                    Offset (0xA4), 
+                        ,   15, 
+                    PSP9,   1
                 }
-            }
 
-            Device (I2PS)
-            {
-                Name (_ADR, 0x00)  // _ADR: Address
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                 {
-                    If (\GPIC)
+                    If (GPIC)
                     {
-                        Return (Package (0x08)
+                        Return (Package (0x04)
                         {
                             Package (0x04)
                             {
-                                0x0002FFFF, 
-                                0x00, 
-                                0x00, 
+                                0xFFFF, 
+                                Zero, 
+                                Zero, 
                                 0x10
                             }, 
 
                             Package (0x04)
                             {
-                                0x0002FFFF, 
-                                0x01, 
-                                0x00, 
+                                0xFFFF, 
+                                One, 
+                                Zero, 
                                 0x11
                             }, 
 
                             Package (0x04)
                             {
-                                0x0002FFFF, 
+                                0xFFFF, 
                                 0x02, 
-                                0x00, 
+                                Zero, 
                                 0x12
                             }, 
 
                             Package (0x04)
                             {
-                                0x0002FFFF, 
+                                0xFFFF, 
                                 0x03, 
-                                0x00, 
+                                Zero, 
                                 0x13
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0x0004FFFF, 
-                                0x00, 
-                                0x00, 
-                                0x11
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0x0004FFFF, 
-                                0x01, 
-                                0x00, 
-                                0x12
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0x0004FFFF, 
-                                0x02, 
-                                0x00, 
-                                0x13
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0x0004FFFF, 
-                                0x03, 
-                                0x00, 
-                                0x10
                             }
                         })
                     }
                     Else
                     {
-                        Return (Package (0x08)
+                        Return (Package (0x04)
                         {
                             Package (0x04)
                             {
-                                0x0002FFFF, 
-                                0x00, 
-                                \_SB.PCI0.LPCB.LNKA, 
-                                0x00
+                                0xFFFF, 
+                                Zero, 
+                                ^^LPCB.LNKA, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
-                                0x0002FFFF, 
-                                0x01, 
-                                \_SB.PCI0.LPCB.LNKB, 
-                                0x00
+                                0xFFFF, 
+                                One, 
+                                ^^LPCB.LNKB, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
-                                0x0002FFFF, 
+                                0xFFFF, 
                                 0x02, 
-                                \_SB.PCI0.LPCB.LNKC, 
-                                0x00
+                                ^^LPCB.LNKC, 
+                                Zero
                             }, 
 
                             Package (0x04)
                             {
-                                0x0002FFFF, 
+                                0xFFFF, 
                                 0x03, 
-                                \_SB.PCI0.LPCB.LNKD, 
-                                0x00
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0x0004FFFF, 
-                                0x00, 
-                                \_SB.PCI0.LPCB.LNKB, 
-                                0x00
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0x0004FFFF, 
-                                0x01, 
-                                \_SB.PCI0.LPCB.LNKC, 
-                                0x00
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0x0004FFFF, 
-                                0x02, 
-                                \_SB.PCI0.LPCB.LNKD, 
-                                0x00
-                            }, 
-
-                            Package (0x04)
-                            {
-                                0x0004FFFF, 
-                                0x03, 
-                                \_SB.PCI0.LPCB.LNKA, 
-                                0x00
+                                ^^LPCB.LNKD, 
+                                Zero
                             }
                         })
                     }
                 }
 
-                Device (PPB2)
-                {
-                    Name (_ADR, 0x00020000)  // _ADR: Address
-                    Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-                    {
-                        0x09, 
-                        0x04
-                    })
-                    Device (PXS3)
-                    {
-                        Name (_ADR, 0xFFFF)  // _ADR: Address
-                        Name (_SUN, 0x03)  // _SUN: Slot User Number
-                    }
-
-                    Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
-                    {
-                        If (\GPIC)
-                        {
-                            Return (Package (0x04)
-                            {
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x00, 
-                                    0x00, 
-                                    0x12
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x01, 
-                                    0x00, 
-                                    0x13
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x02, 
-                                    0x00, 
-                                    0x10
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x03, 
-                                    0x00, 
-                                    0x11
-                                }
-                            })
-                        }
-                        Else
-                        {
-                            Return (Package (0x04)
-                            {
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x00, 
-                                    \_SB.PCI0.LPCB.LNKC, 
-                                    0x00
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x01, 
-                                    \_SB.PCI0.LPCB.LNKD, 
-                                    0x00
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x02, 
-                                    \_SB.PCI0.LPCB.LNKA, 
-                                    0x00
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x03, 
-                                    \_SB.PCI0.LPCB.LNKB, 
-                                    0x00
-                                }
-                            })
-                        }
-                    }
-                }
-
-                Device (PPB4)
-                {
-                    Name (_ADR, 0x00040000)  // _ADR: Address
-                    Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-                    {
-                        0x09, 
-                        0x04
-                    })
-                    Device (PXS4)
-                    {
-                        Name (_ADR, 0xFFFF)  // _ADR: Address
-                        Name (_SUN, 0x04)  // _SUN: Slot User Number
-                    }
-
-                    Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
-                    {
-                        If (\GPIC)
-                        {
-                            Return (Package (0x04)
-                            {
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x00, 
-                                    0x00, 
-                                    0x10
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x01, 
-                                    0x00, 
-                                    0x11
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x02, 
-                                    0x00, 
-                                    0x12
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x03, 
-                                    0x00, 
-                                    0x13
-                                }
-                            })
-                        }
-                        Else
-                        {
-                            Return (Package (0x04)
-                            {
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x00, 
-                                    \_SB.PCI0.LPCB.LNKA, 
-                                    0x00
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x01, 
-                                    \_SB.PCI0.LPCB.LNKB, 
-                                    0x00
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x02, 
-                                    \_SB.PCI0.LPCB.LNKC, 
-                                    0x00
-                                }, 
-
-                                Package (0x04)
-                                {
-                                    0xFFFF, 
-                                    0x03, 
-                                    \_SB.PCI0.LPCB.LNKD, 
-                                    0x00
-                                }
-                            })
-                        }
-                    }
-                }
-            }
-        }
-
-        Device (IOU0)
-        {
-            Name (_ADR, 0x00030000)  // _ADR: Address
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-            {
-                0x09, 
-                0x04
-            })
-            OperationRegion (P3XS, PCI_Config, 0x40, 0xE0)
-            Field (P3XS, AnyAcc, NoLock, WriteAsZeros)
-            {
-                Offset (0xA4), 
-                    ,   15, 
-                PSP8,   1
-            }
-
-            Device (PXS1)
-            {
-                Name (_ADR, 0xFFFF)  // _ADR: Address
-                Name (_SUN, 0x01)  // _SUN: Slot User Number
-            }
-
-            Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
-            {
-                If (\GPIC)
-                {
-                    Return (Package (0x04)
-                    {
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x00, 
-                            0x00, 
-                            0x10
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x01, 
-                            0x00, 
-                            0x11
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x02, 
-                            0x00, 
-                            0x12
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x03, 
-                            0x00, 
-                            0x13
-                        }
-                    })
-                }
-                Else
-                {
-                    Return (Package (0x04)
-                    {
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
-                        }
-                    })
-                }
-            }
-        }
-
-        Device (IOU1)
-        {
-            Name (_ADR, 0x00070000)  // _ADR: Address
-            Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
-            {
-                0x09, 
-                0x04
-            })
-            OperationRegion (P7XS, PCI_Config, 0x40, 0xE0)
-            Field (P7XS, AnyAcc, NoLock, WriteAsZeros)
-            {
-                Offset (0xA4), 
-                    ,   15, 
-                PSP7,   1
-            }
-
-            Device (PXS2)
-            {
-                Name (_ADR, Zero)  // _ADR: Address
-                Name (_SUN, 0x02)  // _SUN: Slot User Number
-                Device (PEGP)
-                {
-                Name (_ADR, Zero)  // _ADR: Address
-                Device (GFX1)
+                Device (I2PS)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
-                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                     {
-                        If ((Arg2 == Zero))
+                        If (GPIC)
                         {
-                            Return (Buffer (One)
+                            Return (Package (0x08)
                             {
-                                 0x03                                             // .
+                                Package (0x04)
+                                {
+                                    0x0002FFFF, 
+                                    Zero, 
+                                    Zero, 
+                                    0x10
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0002FFFF, 
+                                    One, 
+                                    Zero, 
+                                    0x11
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0002FFFF, 
+                                    0x02, 
+                                    Zero, 
+                                    0x12
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0002FFFF, 
+                                    0x03, 
+                                    Zero, 
+                                    0x13
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0004FFFF, 
+                                    Zero, 
+                                    Zero, 
+                                    0x11
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0004FFFF, 
+                                    One, 
+                                    Zero, 
+                                    0x12
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0004FFFF, 
+                                    0x02, 
+                                    Zero, 
+                                    0x13
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0004FFFF, 
+                                    0x03, 
+                                    Zero, 
+                                    0x10
+                                }
                             })
                         }
-
-                        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                        Else
                         {
-                            If (OSDW ())
+                            Return (Package (0x08)
                             {
-                                Return (Package (0x02)
+                                Package (0x04)
                                 {
-                                    0x69, 
-                                    0x03
+                                    0x0002FFFF, 
+                                    Zero, 
+                                    ^^^LPCB.LNKA, 
+                                    Zero
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0002FFFF, 
+                                    One, 
+                                    ^^^LPCB.LNKB, 
+                                    Zero
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0002FFFF, 
+                                    0x02, 
+                                    ^^^LPCB.LNKC, 
+                                    Zero
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0002FFFF, 
+                                    0x03, 
+                                    ^^^LPCB.LNKD, 
+                                    Zero
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0004FFFF, 
+                                    Zero, 
+                                    ^^^LPCB.LNKB, 
+                                    Zero
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0004FFFF, 
+                                    One, 
+                                    ^^^LPCB.LNKC, 
+                                    Zero
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0004FFFF, 
+                                    0x02, 
+                                    ^^^LPCB.LNKD, 
+                                    Zero
+                                }, 
+
+                                Package (0x04)
+                                {
+                                    0x0004FFFF, 
+                                    0x03, 
+                                    ^^^LPCB.LNKA, 
+                                    Zero
+                                }
+                            })
+                        }
+                    }
+
+                    Device (PPB2)
+                    {
+                        Name (_ADR, 0x00020000)  // _ADR: Address
+                        Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+                        {
+                            0x09, 
+                            0x04
+                        })
+                        Device (PEG0)
+                        {
+                            Name (_ADR, Zero)  // _ADR: Address
+                            Name (_SUN, 0x03)  // _SUN: Slot User Number
+                            Device (PEGP)
+                            {
+                                Name (_ADR, Zero)  // _ADR: Address
+                                Device (GFX1)
+                                {
+                                    Name (_ADR, Zero)  // _ADR: Address
+                                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                                    {
+                                        If ((Arg2 == Zero))
+                                        {
+                                            Return (Buffer (One)
+                                            {
+                                                 0x03                                             // .
+                                            })
+                                        }
+
+                                        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                                        {
+                                            If (OSDW ())
+                                            {
+                                                Return (Package (0x02)
+                                                {
+                                                    0x69, 
+                                                    0x03
+                                                })
+                                            }
+                                            Else
+                                            {
+                                                Return (Package (0x02)
+                                                {
+                                                    0x69, 
+                                                    0x03
+                                                })
+                                            }
+                                        }
+
+                                        Return (Package (0x1E)
+                                        {
+                                            "AAPL,slot-name", 
+                                            Buffer (0x0D)
+                                            {
+                                                "Slot-3@5,0,0"
+                                            }, 
+
+                                            "@0,connector-type", 
+                                            Buffer (0x04)
+                                            {
+                                                 0x00, 0x08, 0x00, 0x00                           // ....
+                                            }, 
+
+                                            "@1,connector-type", 
+                                            Buffer (0x04)
+                                            {
+                                                 0x00, 0x04, 0x00, 0x00                           // ....
+                                            }, 
+
+                                            "revision-id", 
+                                            Buffer (One)
+                                            {
+                                                 0xE7                                             // .
+                                            }, 
+
+                                            "compatible", 
+                                            Package (0x04)
+                                            {
+                                                "pci1002:67ef", 
+                                                "pci1da2:e366", 
+                                                "pciclass,030000", 
+                                                "GFX1"
+                                            }, 
+
+                                            "device-id", 
+                                            Buffer (0x04)
+                                            {
+                                                 0xEF, 0x67, 0x00, 0x00                           // .g..
+                                            }, 
+
+                                            "model", 
+                                            Buffer (0x0E)
+                                            {
+                                                "Radeon RX 580"
+                                            }, 
+
+                                            "hda-gfx", 
+                                            Buffer (0x0A)
+                                            {
+                                                "onboard-2"
+                                            }, 
+
+                                            "subsystem-id", 
+                                            Buffer (0x04)
+                                            {
+                                                 0x66, 0xE3, 0x00, 0x00                           // f...
+                                            }, 
+
+                                            "subsystem-vendor-id", 
+                                            Buffer (0x04)
+                                            {
+                                                 0xA2, 0x1D, 0x00, 0x00                           // ....
+                                            }, 
+
+                                            "@0,AAPL,boot-display", 
+                                            Buffer (One)
+                                            {
+                                                 0x01                                             // .
+                                            }, 
+
+                                            "@1,AAPL,boot-display", 
+                                            Buffer (One)
+                                            {
+                                                 0x00                                             // .
+                                            }, 
+
+                                            "CFG,CFG_USE_AGDC", 
+                                            Buffer (One)
+                                            {
+                                                 0x00                                             // .
+                                            }, 
+
+                                            "CFG,CFG_FB_LIMIT", 
+                                            Buffer (One)
+                                            {
+                                                 0x02                                             // .
+                                            }, 
+
+                                            "PP,MM_EnableHEVCEncode", 
+                                            Buffer (One)
+                                            {
+                                                 0x00                                             // .
+                                            }
+                                        })
+                                    }
+                                }
+
+                                Device (HDAU)
+                                {
+                                    Name (_ADR, One)  // _ADR: Address
+                                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                                    {
+                                        If ((Arg2 == Zero))
+                                        {
+                                            Return (Buffer (One)
+                                            {
+                                                 0x03                                             // .
+                                            })
+                                        }
+
+                                        Return (Package (0x08)
+                                        {
+                                            "AAPL,slot-name", 
+                                            Buffer (0x0D)
+                                            {
+                                                "Slot-3@5,0,1"
+                                            }, 
+
+                                            "model", 
+                                            Buffer (0x13)
+                                            {
+                                                "Navi 10 HDMI Audio"
+                                            }, 
+
+                                            "hda-gfx", 
+                                            Buffer (0x0A)
+                                            {
+                                                "onboard-2"
+                                            }, 
+
+                                            "layout-id", 
+                                            Buffer (0x04)
+                                            {
+                                                 0x01, 0x00, 0x00, 0x00                           // ....
+                                            }
+                                        })
+                                    }
+                                }
+                            }
+                        }
+
+                        Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+                        {
+                            If (GPIC)
+                            {
+                                Return (Package (0x04)
+                                {
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        Zero, 
+                                        Zero, 
+                                        0x12
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        One, 
+                                        Zero, 
+                                        0x13
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        0x02, 
+                                        Zero, 
+                                        0x10
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        0x03, 
+                                        Zero, 
+                                        0x11
+                                    }
                                 })
                             }
                             Else
                             {
-                                Return (Package (0x02)
+                                Return (Package (0x04)
                                 {
-                                    0x69, 
-                                    0x03
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        Zero, 
+                                        ^^^^LPCB.LNKC, 
+                                        Zero
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        One, 
+                                        ^^^^LPCB.LNKD, 
+                                        Zero
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        0x02, 
+                                        ^^^^LPCB.LNKA, 
+                                        Zero
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        0x03, 
+                                        ^^^^LPCB.LNKB, 
+                                        Zero
+                                    }
                                 })
                             }
                         }
-
-                        Return (Package (0x14)
-                        {
-                            "AAPL,slot-name", 
-                            Buffer (0x1B)
-                            {
-                                "Slot-2"
-                            }, 
-
-                            "@0,AAPL,boot-display", 
-                            Buffer (0x04)
-                            {
-                                 0x01, 0x00, 0x00, 0x00                           // ....
-                            }, 
-
-                            "device-id", 
-                            Buffer (0x04)
-                            {
-                                 0xFF, 0x67, 0x00, 0x00                           // .s..
-                            }, 
-
-                            "model", 
-                            Buffer (0x16)
-                            {
-                                "Radeon RX 550"
-                            }, 
-
-                            "@0,connector-type", 
-                            Buffer (0x04)
-                            {
-                                 0x00, 0x08, 0x00, 0x00                           // ....
-                            }, 
-
-                            "@1,connector-type", 
-                            Buffer (0x04)
-                            {
-                                 0x00, 0x04, 0x00, 0x00                           // ....
-                            }, 
-
-                            "hda-gfx", 
-                            Buffer (0x0A)
-                            {
-                                "onboard-2"
-                            }
-                        })
                     }
-                }
 
-                Device (HDAU)
-                {
-                    Name (_ADR, One)  // _ADR: Address
-                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                    Device (PPB4)
                     {
-                        If ((Arg2 == Zero))
+                        Name (_ADR, 0x00040000)  // _ADR: Address
+                        Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                         {
-                            Return (Buffer (One)
-                            {
-                                 0x03                                             // .
-                            })
+                            0x09, 
+                            0x04
+                        })
+                        Device (PXS4)
+                        {
+                            Name (_ADR, 0xFFFF)  // _ADR: Address
+                            Name (_SUN, 0x04)  // _SUN: Slot User Number
                         }
 
-                        Return (Package (0x08)
+                        Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                         {
-                            "AAPL,slot-name", 
-                            Buffer (0x1B)
+                            If (GPIC)
                             {
-                                "Internal@0,7,0/0,0/0,0/0,1"
-                            }, 
+                                Return (Package (0x04)
+                                {
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        Zero, 
+                                        Zero, 
+                                        0x10
+                                    }, 
 
-                            "model", 
-                            Buffer (0x14)
-                            {
-                                " Navi 10 HDMI Audio"
-                            }, 
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        One, 
+                                        Zero, 
+                                        0x11
+                                    }, 
 
-                            "hda-gfx", 
-                            Buffer (0x0A)
-                            {
-                                "onboard-2"
-                            }, 
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        0x02, 
+                                        Zero, 
+                                        0x12
+                                    }, 
 
-                            "layout-id", 
-                            Buffer (0x04)
-                            {
-                                 0x01, 0x00, 0x00, 0x00                           // ....
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        0x03, 
+                                        Zero, 
+                                        0x13
+                                    }
+                                })
                             }
-                        })
+                            Else
+                            {
+                                Return (Package (0x04)
+                                {
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        Zero, 
+                                        ^^^^LPCB.LNKA, 
+                                        Zero
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        One, 
+                                        ^^^^LPCB.LNKB, 
+                                        Zero
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        0x02, 
+                                        ^^^^LPCB.LNKC, 
+                                        Zero
+                                    }, 
+
+                                    Package (0x04)
+                                    {
+                                        0xFFFF, 
+                                        0x03, 
+                                        ^^^^LPCB.LNKD, 
+                                        Zero
+                                    }
+                                })
+                            }
+                        }
                     }
-                }
                 }
             }
 
-            Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+            Device (IOU0)
             {
-                If (\GPIC)
+                Name (_ADR, 0x00030000)  // _ADR: Address
+                Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
                 {
-                    Return (Package (0x04)
-                    {
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x00, 
-                            0x00, 
-                            0x10
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x01, 
-                            0x00, 
-                            0x11
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x02, 
-                            0x00, 
-                            0x12
-                        }, 
-
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x03, 
-                            0x00, 
-                            0x13
-                        }
-                    })
+                    0x09, 
+                    0x04
+                })
+                OperationRegion (P3XS, PCI_Config, 0x40, 0xE0)
+                Field (P3XS, AnyAcc, NoLock, WriteAsZeros)
+                {
+                    Offset (0xA4), 
+                        ,   15, 
+                    PSP8,   1
                 }
-                Else
+
+                Device (PXS1)
                 {
-                    Return (Package (0x04)
+                    Name (_ADR, 0xFFFF)  // _ADR: Address
+                    Name (_SUN, 0x02)  // _SUN: Slot User Number
+                }
+
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+                {
+                    If (GPIC)
                     {
-                        Package (0x04)
+                        Return (Package (0x04)
                         {
-                            0xFFFF, 
-                            0x00, 
-                            \_SB.PCI0.LPCB.LNKA, 
-                            0x00
-                        }, 
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                Zero, 
+                                Zero, 
+                                0x10
+                            }, 
 
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x01, 
-                            \_SB.PCI0.LPCB.LNKB, 
-                            0x00
-                        }, 
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                One, 
+                                Zero, 
+                                0x11
+                            }, 
 
-                        Package (0x04)
-                        {
-                            0xFFFF, 
-                            0x02, 
-                            \_SB.PCI0.LPCB.LNKC, 
-                            0x00
-                        }, 
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                0x02, 
+                                Zero, 
+                                0x12
+                            }, 
 
-                        Package (0x04)
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                0x03, 
+                                Zero, 
+                                0x13
+                            }
+                        })
+                    }
+                    Else
+                    {
+                        Return (Package (0x04)
                         {
-                            0xFFFF, 
-                            0x03, 
-                            \_SB.PCI0.LPCB.LNKD, 
-                            0x00
-                        }
-                    })
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                Zero, 
+                                ^^LPCB.LNKA, 
+                                Zero
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                One, 
+                                ^^LPCB.LNKB, 
+                                Zero
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                0x02, 
+                                ^^LPCB.LNKC, 
+                                Zero
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                0x03, 
+                                ^^LPCB.LNKD, 
+                                Zero
+                            }
+                        })
+                    }
                 }
             }
-        }
 
+            Device (IOU1)
+            {
+                Name (_ADR, 0x00070000)  // _ADR: Address
+                Name (_PRW, Package (0x02)  // _PRW: Power Resources for Wake
+                {
+                    0x09, 
+                    0x04
+                })
+                OperationRegion (P7XS, PCI_Config, 0x40, 0xE0)
+                Field (P7XS, AnyAcc, NoLock, WriteAsZeros)
+                {
+                    Offset (0xA4), 
+                        ,   15, 
+                    PSP7,   1
+                }
+
+                Device (PXS2)
+                {
+                    Name (_ADR, 0xFFFF)  // _ADR: Address
+                    Name (_SUN, 0x02)  // _SUN: Slot User Number
+                }
+
+                Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
+                {
+                    If (GPIC)
+                    {
+                        Return (Package (0x04)
+                        {
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                Zero, 
+                                Zero, 
+                                0x10
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                One, 
+                                Zero, 
+                                0x11
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                0x02, 
+                                Zero, 
+                                0x12
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                0x03, 
+                                Zero, 
+                                0x13
+                            }
+                        })
+                    }
+                    Else
+                    {
+                        Return (Package (0x04)
+                        {
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                Zero, 
+                                ^^LPCB.LNKA, 
+                                Zero
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                One, 
+                                ^^LPCB.LNKB, 
+                                Zero
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                0x02, 
+                                ^^LPCB.LNKC, 
+                                Zero
+                            }, 
+
+                            Package (0x04)
+                            {
+                                0xFFFF, 
+                                0x03, 
+                                ^^LPCB.LNKD, 
+                                Zero
+                            }
+                        })
+                    }
+                }
+            }
         }
     }
 }

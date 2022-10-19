@@ -26,6 +26,24 @@
                 </dict>
                 <dict>
                     <key>Arch</key>
+                    <string>Any</string>
+                    <key>BundlePath</key>
+                    <string>NullCPUPowerManagement.kext</string>
+                    <key>Comment</key>
+                    <string>V1.0.0d2</string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/NullCPUPowerManagement</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string></string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
                     <string>x86_64</string>
                     <key>BundlePath</key>
                     <string>IO80211ElCap.kext</string>
@@ -46,47 +64,11 @@
                     <key>Arch</key>
                     <string>x86_64</string>
                     <key>BundlePath</key>
-                    <string>IO80211ElCap.kext/Contents/PlugIns/AppleAirPortBrcm43224.kext</string>
-                    <key>Comment</key>
-                    <string>V700.36.24 | BCM94328 Wifi Patch</string>
-                    <key>Enabled</key>
-                    <true/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/AppleAirPortBrcm43224</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string>16.0.0</string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
-                    <string>x86_64</string>
-                    <key>BundlePath</key>
-                    <string>IO80211ElCap.kext/Contents/PlugIns/AirPortBrcm4331.kext</string>
-                    <key>Comment</key>
-                    <string>V800.20.24</string>
-                    <key>Enabled</key>
-                    <false/>
-                    <key>ExecutablePath</key>
-                    <string>Contents/MacOS/AirPortBrcm4331</string>
-                    <key>MaxKernel</key>
-                    <string></string>
-                    <key>MinKernel</key>
-                    <string></string>
-                    <key>PlistPath</key>
-                    <string>Contents/Info.plist</string>
-                </dict>
-                <dict>
-                    <key>Arch</key>
-                    <string>x86_64</string>
-                    <key>BundlePath</key>
                     <string>IO80211ElCap.kext/Contents/PlugIns/AirPortAtheros40.kext</string>
                     <key>Comment</key>
                     <string>V700.74.5</string>
                     <key>Enabled</key>
-                    <false/>
+                    <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/AirPortAtheros40</string>
                     <key>MaxKernel</key>
@@ -100,17 +82,35 @@
                     <key>Arch</key>
                     <string>x86_64</string>
                     <key>BundlePath</key>
-                    <string>RadeonSensor.kext</string>
+                    <string>IO80211ElCap.kext/Contents/PlugIns/AirPortBrcm4331.kext</string>
                     <key>Comment</key>
-                    <string>V0.3.1</string>
+                    <string>V800.20.24</string>
                     <key>Enabled</key>
                     <true/>
                     <key>ExecutablePath</key>
-                    <string>Contents/MacOS/RadeonSensor</string>
+                    <string>Contents/MacOS/AirPortBrcm4331</string>
                     <key>MaxKernel</key>
                     <string></string>
                     <key>MinKernel</key>
                     <string></string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>x86_64</string>
+                    <key>BundlePath</key>
+                    <string>IO80211ElCap.kext/Contents/PlugIns/AppleAirPortBrcm43224.kext</string>
+                    <key>Comment</key>
+                    <string>V700.36.24 | BCM94328 Wifi Patch</string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/AppleAirPortBrcm43224</string>
+                    <key>MaxKernel</key>
+                    <string></string>
+                    <key>MinKernel</key>
+                    <string>16.0.0</string>
                     <key>PlistPath</key>
                     <string>Contents/Info.plist</string>
                 </dict>
@@ -158,7 +158,7 @@
                     <key>Comment</key>
                     <string>V1.7.5 | AppleHDA Patching</string>
                     <key>Enabled</key>
-                    <false/>
+                    <true/>
                     <key>ExecutablePath</key>
                     <string>Contents/MacOS/AppleALC</string>
                     <key>MaxKernel</key>
@@ -354,7 +354,7 @@
                     <key>BundlePath</key>
                     <string>BlueToolFixup.kext</string>
                     <key>Comment</key>
-                    <string>V2.6.3 | Fix Monterey Bluetooth</string>
+                    <string>V2.6.4 | Fix Monterey Bluetooth</string>
                     <key>Enabled</key>
                     <true/>
                     <key>ExecutablePath</key>
@@ -406,17 +406,35 @@
                     <key>Arch</key>
                     <string>x86_64</string>
                     <key>BundlePath</key>
-                    <string>NoAVXFSCompressionTypeZlib.kext</string>
+                    <string>AMD9500Controller.kext</string>
                     <key>Comment</key>
-                    <string>V1.0.0 | Work-around 12.4+ Zlib kernel panic</string>
+                    <string>V4.0.6</string>
                     <key>Enabled</key>
                     <true/>
                     <key>ExecutablePath</key>
-                    <string>Contents/MacOS/NoAVXFSCompressionTypeZlib</string>
+                    <string>Contents/MacOS/AMD9500Controller</string>
                     <key>MaxKernel</key>
                     <string></string>
                     <key>MinKernel</key>
-                    <string>21.5.0</string>
+                    <string>20.0.0</string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>x86_64</string>
+                    <key>BundlePath</key>
+                    <string>10.13.6/AMD9500Controller.kext</string>
+                    <key>Comment</key>
+                    <string>V1.6.8</string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>ExecutablePath</key>
+                    <string>Contents/MacOS/AMD9500Controller</string>
+                    <key>MaxKernel</key>
+                    <string>19.99</string>
+                    <key>MinKernel</key>
+                    <string>17.0.0</string>
                     <key>PlistPath</key>
                     <string>Contents/Info.plist</string>
                 </dict>
@@ -434,7 +452,25 @@
                     <key>MaxKernel</key>
                     <string></string>
                     <key>MinKernel</key>
-                    <string>20.1.0</string>
+                    <string>19.0.0</string>
+                    <key>PlistPath</key>
+                    <string>Contents/Info.plist</string>
+                </dict>
+                <dict>
+                    <key>Arch</key>
+                    <string>x86_64</string>
+                    <key>BundlePath</key>
+                    <string>USBMapLegacy.kext</string>
+                    <key>Comment</key>
+                    <string>V1.0</string>
+                    <key>Enabled</key>
+                    <true/>
+                    <key>ExecutablePath</key>
+                    <string></string>
+                    <key>MaxKernel</key>
+                    <string>18.99.99</string>
+                    <key>MinKernel</key>
+                    <string></string>
                     <key>PlistPath</key>
                     <string>Contents/Info.plist</string>
                 </dict>
@@ -584,13 +620,13 @@
                     <key>Base</key>
                     <string></string>
                     <key>Comment</key>
-                    <string>RX 6500 XT Inject HDMI-A</string>
+                    <string>Foxbox Orinoco Auto Select</string>
                     <key>Count</key>
-                    <integer>0</integer>
+                    <integer>1</integer>
                     <key>Enabled</key>
                     <true/>
                     <key>Find</key>
-                    <data>AAQAAAQDAAAAAQEBAAAAABECAgEAAAAA</data>
+                    <data>AAQAAAQDAAAAAQEBAAAAABIEBgEAAAAAAAQAAAQDAAAAAQIBAAAAACIFBAMAAAAAAAgAAAQCAAAAAQMAAAAAABECAQIAAAAAAAgAAAQCAAAAAQQAAAAAACEDBQQAAAAABAAAAAQAAAAAAQUAAAAAAAAAAwYAAAAA</data>
                     <key>Identifier</key>
                     <string>com.apple.kext.AMD9500Controller</string>
                     <key>Limit</key>
@@ -598,11 +634,11 @@
                     <key>Mask</key>
                     <data></data>
                     <key>MaxKernel</key>
-                    <string>21.1.0</string>
+                    <string>21.1.1</string>
                     <key>MinKernel</key>
                     <string></string>
                     <key>Replace</key>
-                    <data>AAQAAAQGAAAAAQIBAAAAABECAAEAAAAA</data>
+                    <data>AAQAAAQDAAAAAQABAAAAABIEBgEAAAAAAAQAAAQDAAAAAQABAAAAACIFBAMAAAAAAAQAAAQDAAAAAQABAAAAABECAQIAAAAAAAgAAAQCAAAAAQAAAAAAACEDBQQAAAAABAAAAAQCAAAAAQAAAAAAAAAAAwYAAAAA</data>
                     <key>ReplaceMask</key>
                     <data></data>
                     <key>Skip</key>
@@ -614,13 +650,13 @@
                     <key>Base</key>
                     <string></string>
                     <key>Comment</key>
-                    <string>RX 6500 XT Inject DP2</string>
+                    <string>ATY,Berbice Auto Select</string>
                     <key>Count</key>
-                    <integer>0</integer>
+                    <integer>1</integer>
                     <key>Enabled</key>
                     <true/>
                     <key>Find</key>
-                    <data>AAgAAAQCAAAAAQIAAAAAACEDBQQAAAAA</data>
+                    <data>AgAAAAABAAA5BQEIAAAAACABAQEAAAAAAAQAAAABAAAAAQJDMAAAABAAAgIAAAAAAAQAAAABAAAAAQMTIAAAACEDAwMAAAAAAAQAAAABAAAAAQRTUAAAABECBAQAAAAAAAQAAAABAAAAAQUzQAAAABIEBQUAAAAA</data>
                     <key>Identifier</key>
                     <string>com.apple.kext.AMD9500Controller</string>
                     <key>Limit</key>
@@ -632,7 +668,7 @@
                     <key>MinKernel</key>
                     <string></string>
                     <key>Replace</key>
-                    <data>AAgAAAQCAAAAcQEAAAAAACEDAAQAAAAA</data>
+                    <data>AgAAAAABAAA5BQAIAAAAACABAQEAAAAAAAQAAAABAAAAAQBDMAAAABAAAgIAAAAAAAQAAAABAAAAAQATIAAAACEDAwMAAAAAAAQAAAABAAAAAQBTUAAAABECBAQAAAAAAAQAAAABAAAAAQAzQAAAABIEBQUAAAAA</data>
                     <key>ReplaceMask</key>
                     <data></data>
                     <key>Skip</key>
@@ -642,27 +678,27 @@
                     <key>Arch</key>
                     <string>x86_64</string>
                     <key>Base</key>
-                    <string></string>
+                    <string>_cs_require_lv</string>
                     <key>Comment</key>
-                    <string>Port 3 Disable</string>
+                    <string>Disable Library Validation Enforcement</string>
                     <key>Count</key>
                     <integer>0</integer>
                     <key>Enabled</key>
                     <true/>
                     <key>Find</key>
-                    <data>BAAAAAQCAAAAAQMAAAAAAAAAAwUAAAAA</data>
+                    <data></data>
                     <key>Identifier</key>
-                    <string>com.apple.kext.AMD9500Controller</string>
+                    <string>kernel</string>
                     <key>Limit</key>
                     <integer>0</integer>
                     <key>Mask</key>
                     <data></data>
                     <key>MaxKernel</key>
-                    <string>21.1.0</string>
-                    <key>MinKernel</key>
                     <string></string>
+                    <key>MinKernel</key>
+                    <string>20.0.0</string>
                     <key>Replace</key>
-                    <data>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</data>
+                    <data>uAAAAADD</data>
                     <key>ReplaceMask</key>
                     <data></data>
                     <key>Skip</key>
@@ -714,7 +750,7 @@
                 <key>ThirdPartyDrives</key>
                 <false/>
                 <key>XhciPortLimit</key>
-                <false/>
+                <true/>
             </dict>
             <key>Scheme</key>
             <dict>

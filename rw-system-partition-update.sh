@@ -3,7 +3,5 @@
 if [ "$#" -lt 2 ]; then echo "$0 <special> <node>"; exit 0; fi
 partition="$1"
 mount="$2"
-mkdir "$mount"
-mount -o nobrowse -t apfs "$partition" "$mount"
 kmutil install --volume-root "$mount" --update-all
 bless --folder "$mount"/System/Library/CoreServices --bootefi --create-snapshot

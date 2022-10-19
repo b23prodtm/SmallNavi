@@ -1,0 +1,11 @@
+#!/bin/bash
+function rmfn() {
+    if [ 1 -ne "$#" ]; then printf "[ %s ] Missing 1 arg (a file path)" "$0"; exit 1; fi
+    path="$1"
+    printf "Remove %s \n" "$path"
+    if [ ! $(rm -Rv "path" > /dev/null) ]; then
+        printf "PLEASE REMOVE FILE %s MANUALLY !\n" "$path"
+    else
+        printf "[OK]\n"
+    fi
+}

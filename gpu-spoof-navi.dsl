@@ -24,16 +24,16 @@ DefinitionBlock ("", "SSDT", 2, "Matty", "Baffin", 0x00000000)
     External (_SB_.PCI0.IOU1, DeviceObj)
     External (OSDW, MethodObj)    // 0 Arguments
 
-    Scope (\_SB.PCI0.IOU2)
+    Scope (\_SB.PCI0.IOU1)
     {
-        Device (PEG0)
+        Device (PEG0)     
         {
-            Name (_ADR, Zero)  // _ADR: Address
-            Name (_SUN, 0x03)  // _SUN: Slot User Number
-            Device (PEGP)
+            Name (_ADR, Zero)
+            Name (_SUN, 0x02)  // PCI-Bridge SLOT-2
+            Device (PEGP)    // PCI-Bridge
             {
                 Name (_ADR, Zero)  // _ADR: Address
-                Device (GFX0)
+                Device (GFX1)
                 {
                     Name (_ADR, Zero)  // _ADR: Address
                     Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
@@ -87,22 +87,22 @@ DefinitionBlock ("", "SSDT", 2, "Matty", "Baffin", 0x00000000)
                             }, 
                                                         
                             "compatible",
-                            Package (0x04)
+                            Package (0x05)
                             {
-                                "pci1002:67df", "pci103c:840e", "pciclass,030000", "GFX1"
+                                "pci1002:73Bf", "pci1002:0b36", "pciclass,030000", "PXS2", "GFX1"
                             },
 
                             
                             "device-id", 
                             Buffer (0x04)
                             {
-                                 0xDF, 0x67, 0x00, 0x00                           // .s..
+                                 0xBF, 0x73, 0x00, 0x00                           // .s..
                             }, 
 
                             "model", 
-                            Buffer (0x0D)
+                            Buffer (0x11)
                             {
-                                "Radeon RX 580"
+                                "Radeon RX 6900 XT"
                             }, 
                             
                             "hda-gfx", 
@@ -114,7 +114,7 @@ DefinitionBlock ("", "SSDT", 2, "Matty", "Baffin", 0x00000000)
                             "subsystem-id",
                             Buffer (0x04)
                             {
-                                0x0E, 0x84, 0x3C, 0x10
+                                0x36, 0x0B, 0x00, 0x00
                             },
                             
                             "subsystem-vendor-id",
@@ -139,7 +139,7 @@ DefinitionBlock ("", "SSDT", 2, "Matty", "Baffin", 0x00000000)
                             Buffer (One)
                             {
                                 0x02
-                            },                            
+                            },
                             
                             "PP,MM_EnableHEVCEncode", // Navi24 HEVC was disabled
                             Zero
@@ -187,6 +187,7 @@ DefinitionBlock ("", "SSDT", 2, "Matty", "Baffin", 0x00000000)
                             }
                         })
                     }
+                }
             }
         }
     }
