@@ -6,57 +6,27 @@
         <dict>
             <key>Add</key>
             <dict>
-                <key>#PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)</key>
+                <key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x2,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
                 <dict>
+                    <key>AAPL,slot-name</key>
+                    <string>Internal@0,1,0/0,0/2,0/0,0/0,0/0,0</string>
+                    <key>PP,MM_EnableHEVCEncode</key>
+                    <integer>0</integer>
+                    <key>device_type</key>
+                    <string>VGA compatible controller</string>
+                    <key>disable-gpu</key>
+                    <data>AQAAAA==</data>
+                </dict>
+                <key>PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)</key>
+                <dict>
+                    <key>#disable-gpu</key>
+                    <data>AQAAAA==</data>
                     <key>AAPL,slot-name</key>
                     <string>Internal@0,3,0/0,0</string>
                     <key>device_type</key>
                     <string>VGA compatible controller</string>
                     <key>model</key>
-                    <string>GP108 [GeForce GT 1030]</string>
-                </dict>
-                <key>PciRoot(0x0)/Pci(0x1,0x0)/Pci(0x0,0x0)/Pci(0x4,0x0)/Pci(0x0,0x0)</key>
-                <dict>
-                    <key>AAPL,slot-name</key>
-                    <string>Internal@0,1,0/0,0/4,0/0,0</string>
-                    <key>NVCAP</key>
-                    <data>BQAAAAAAAwAMAAAAAAAADwAAAAA=</data>
-                    <key>VRAM,totalsize</key>
-                    <data>AAAAIAAAAAA=</data>
-                    <key>device_type</key>
-                    <string>VGA compatible controller</string>
-                    <key>model</key>
                     <string>G96C [GeForce 9500 GT]</string>
-                </dict>
-                <key>PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)</key>
-                <dict>
-                    <key>@0,name</key>
-                    <string>ATY,Berbice</string>
-                    <key>@1,name</key>
-                    <string>ATY,Berbice</string>
-                    <key>AAPL,slot-name</key>
-                    <string>Internal@0,3,0/0,0/0,0/0,0</string>
-                    <key>agdpmod</key>
-                    <string>pikera</string>
-                    <key>device-id</key>
-                    <data>32cAAA==</data>
-                    <key>device_type</key>
-                    <string>VGA compatible controller</string>
-                    <key>model</key>
-                    <string>Ellesmere [Radeon RX 470/480/570/570X/580/580X/590]</string>
-                    <key>name</key>
-                    <string>ATY,Berbice</string>
-                    <key>unfairgva</key>
-                    <integer>7</integer>
-                </dict>
-                <key>PciRoot(0x0)/Pci(0x3,0x0)/Pci(0x0,0x0)/Pci(0x0,0x0)/Pci(0x0,0x1)</key>
-                <dict>
-                    <key>AAPL,slot-name</key>
-                    <string>Internal@0,3,0/0,0/0,0/0,1</string>
-                    <key>device_type</key>
-                    <string>Audio device</string>
-                    <key>model</key>
-                    <string>Asus HDA</string>
                 </dict>
             </dict>
             <key>Delete</key>
