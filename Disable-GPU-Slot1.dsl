@@ -51,5 +51,36 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "dGPU-Off", 0x00000000)
             }
         }
     }
+    External (_SB_.PCI0.IOU2.I2PS.PPB2.PEG0.PEGP._OFF, MethodObj)    // 0 Arguments
+
+    Device (RMD2)
+    {
+        Name (_HID, "RMD20000")  // _HID: Hardware ID
+        Method (_STA, 0, NotSerialized)  // _STA: Status
+        {
+            If (_OSI ("Darwin"))
+            {
+                Return (0x0F)
+            }
+            Else
+            {
+                Return (Zero)
+            }
+        }
+
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            If (_OSI ("Darwin"))
+            {
+                If (CondRefOf (\_SB.PCI0.IOU2.I2PS.PPB2.PEG0.PEGP._OFF))
+                {
+                    \_SB.PCI0.IOU2.I2PS.PPB2.PEG0.PEGP._OFF ()
+                }
+            }
+            Else
+            {
+            }
+        }
+    }
 }
 

@@ -4486,7 +4486,7 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             Device (PEGP)
                             {
                                 Name (_ADR, Zero)  // _ADR: Address
-                                Device (GFX1)
+                                Device (GFX0)
                                 {
                                     Name (_ADR, Zero)  // _ADR: Address
                                     Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
