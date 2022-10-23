@@ -4479,188 +4479,13 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                             0x09, 
                             0x04
                         })
-                        Device (PEG0)
+                        Device (PXS3)
                         {
-                            Name (_ADR, Zero)  // _ADR: Address
+                            Name (_ADR, 0xFFFF)  // _ADR: Address
                             Name (_SUN, 0x03)  // _SUN: Slot User Number
-                            Device (PEGP)
-                            {
-                                Name (_ADR, Zero)  // _ADR: Address
-                                Device (GFX0)
-                                {
-                                    Name (_ADR, Zero)  // _ADR: Address
-                                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-                                    {
-                                        If ((Arg2 == Zero))
-                                        {
-                                            Return (Buffer (One)
-                                            {
-                                                 0x03                                             // .
-                                            })
-                                        }
 
-                                        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
-                                        {
-                                            If (OSDW ())
-                                            {
-                                                Return (Package (0x02)
-                                                {
-                                                    0x69, 
-                                                    0x03
-                                                })
-                                            }
-                                            Else
-                                            {
-                                                Return (Package (0x02)
-                                                {
-                                                    0x69, 
-                                                    0x03
-                                                })
-                                            }
-                                        }
-
-                                        Return (Package (0x1E)
-                                        {
-                                            "AAPL,slot-name", 
-                                            Buffer (0x0D)
-                                            {
-                                                "Slot-3@5,0,0"
-                                            }, 
-
-                                            "@0,connector-type", 
-                                            Buffer (0x04)
-                                            {
-                                                 0x00, 0x08, 0x00, 0x00                           // ....
-                                            }, 
-
-                                            "@1,connector-type", 
-                                            Buffer (0x04)
-                                            {
-                                                 0x00, 0x04, 0x00, 0x00                           // ....
-                                            }, 
-
-                                            "revision-id", 
-                                            Buffer (One)
-                                            {
-                                                 0xE7                                             // .
-                                            }, 
-
-                                            "compatible", 
-                                            Package (0x04)
-                                            {
-                                                "pci1002:67ef", 
-                                                "pci1da2:e366", 
-                                                "pciclass,030000", 
-                                                "GFX1"
-                                            }, 
-
-                                            "device-id", 
-                                            Buffer (0x04)
-                                            {
-                                                 0xEF, 0x67, 0x00, 0x00                           // .g..
-                                            }, 
-
-                                            "model", 
-                                            Buffer (0x0E)
-                                            {
-                                                "Radeon RX 580"
-                                            }, 
-
-                                            "hda-gfx", 
-                                            Buffer (0x0A)
-                                            {
-                                                "onboard-2"
-                                            }, 
-
-                                            "subsystem-id", 
-                                            Buffer (0x04)
-                                            {
-                                                 0x66, 0xE3, 0x00, 0x00                           // f...
-                                            }, 
-
-                                            "subsystem-vendor-id", 
-                                            Buffer (0x04)
-                                            {
-                                                 0xA2, 0x1D, 0x00, 0x00                           // ....
-                                            }, 
-
-                                            "@0,AAPL,boot-display", 
-                                            Buffer (One)
-                                            {
-                                                 0x01                                             // .
-                                            }, 
-
-                                            "@1,AAPL,boot-display", 
-                                            Buffer (One)
-                                            {
-                                                 0x00                                             // .
-                                            }, 
-
-                                            "CFG,CFG_USE_AGDC", 
-                                            Buffer (One)
-                                            {
-                                                 0x00                                             // .
-                                            }, 
-
-                                            "CFG,CFG_FB_LIMIT", 
-                                            Buffer (One)
-                                            {
-                                                 0x02                                             // .
-                                            }, 
-
-                                            "PP,MM_EnableHEVCEncode", 
-                                            Buffer (One)
-                                            {
-                                                 0x00                                             // .
-                                            }
-                                        })
-                                    }
-                                }
-
-                                Device (HDAU)
-                                {
-                                    Name (_ADR, One)  // _ADR: Address
-                                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
-                                    {
-                                        If ((Arg2 == Zero))
-                                        {
-                                            Return (Buffer (One)
-                                            {
-                                                 0x03                                             // .
-                                            })
-                                        }
-
-                                        Return (Package (0x08)
-                                        {
-                                            "AAPL,slot-name", 
-                                            Buffer (0x0D)
-                                            {
-                                                "Slot-3@5,0,1"
-                                            }, 
-
-                                            "model", 
-                                            Buffer (0x13)
-                                            {
-                                                "Navi 10 HDMI Audio"
-                                            }, 
-
-                                            "hda-gfx", 
-                                            Buffer (0x0A)
-                                            {
-                                                "onboard-2"
-                                            }, 
-
-                                            "layout-id", 
-                                            Buffer (0x04)
-                                            {
-                                                 0x01, 0x00, 0x00, 0x00                           // ....
-                                            }
-                                        })
-                                    }
-                                }
-                            }
                         }
-
+                        
                         Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table
                         {
                             If (GPIC)
@@ -4952,10 +4777,186 @@ DefinitionBlock ("", "DSDT", 1, "APPLE ", "Apple00", 0x00050001)
                     PSP7,   1
                 }
 
-                Device (PXS2)
+                Device (PEG0)
                 {
-                    Name (_ADR, 0xFFFF)  // _ADR: Address
+                    Name (_ADR, Zero)  // _ADR: Address
                     Name (_SUN, 0x02)  // _SUN: Slot User Number
+                    Device (PEGP)
+                    {
+                                Name (_ADR, Zero)  // _ADR: Address
+                                Device (GFX0)
+                                {
+                                    Name (_ADR, Zero)  // _ADR: Address
+                                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                                    {
+                                        If ((Arg2 == Zero))
+                                        {
+                                            Return (Buffer (One)
+                                            {
+                                                 0x03                                             // .
+                                            })
+                                        }
+
+                                        Method (_PRW, 0, NotSerialized)  // _PRW: Power Resources for Wake
+                                        {
+                                            If (OSDW ())
+                                            {
+                                                Return (Package (0x02)
+                                                {
+                                                    0x69, 
+                                                    0x03
+                                                })
+                                            }
+                                            Else
+                                            {
+                                                Return (Package (0x02)
+                                                {
+                                                    0x69, 
+                                                    0x03
+                                                })
+                                            }
+                                        }
+
+                                        Return (Package (0x1E)
+                                        {
+                                            "AAPL,slot-name", 
+                                            Buffer (0x0D)
+                                            {
+                                                "Slot-2@8,0,0"
+                                            }, 
+
+                                            "@0,connector-type", 
+                                            Buffer (0x04)
+                                            {
+                                                 0x00, 0x08, 0x00, 0x00                           // ....
+                                            }, 
+
+                                            "@1,connector-type", 
+                                            Buffer (0x04)
+                                            {
+                                                 0x00, 0x04, 0x00, 0x00                           // ....
+                                            }, 
+
+                                            "revision-id", 
+                                            Buffer (One)
+                                            {
+                                                 0xE7                                             // .
+                                            }, 
+
+                                            "compatible", 
+                                            Package (0x04)
+                                            {
+                                                "pci1002:67ef", 
+                                                "pci1da2:e366", 
+                                                "pciclass,030000", 
+                                                "GFX0"
+                                            }, 
+
+                                            "device-id", 
+                                            Buffer (0x04)
+                                            {
+                                                 0xEF, 0x67, 0x00, 0x00                           // .g..
+                                            }, 
+
+                                            "model", 
+                                            Buffer (0x0E)
+                                            {
+                                                "Radeon RX 580"
+                                            }, 
+
+                                            "hda-gfx", 
+                                            Buffer (0x0A)
+                                            {
+                                                "onboard-2"
+                                            }, 
+
+                                            "subsystem-id", 
+                                            Buffer (0x04)
+                                            {
+                                                 0x66, 0xE3, 0x00, 0x00                           // f...
+                                            }, 
+
+                                            "subsystem-vendor-id", 
+                                            Buffer (0x04)
+                                            {
+                                                 0xA2, 0x1D, 0x00, 0x00                           // ....
+                                            }, 
+
+                                            "@0,AAPL,boot-display", 
+                                            Buffer (One)
+                                            {
+                                                 0x01                                             // .
+                                            }, 
+
+                                            "@1,AAPL,boot-display", 
+                                            Buffer (One)
+                                            {
+                                                 0x00                                             // .
+                                            }, 
+
+                                            "CFG,CFG_USE_AGDC", 
+                                            Buffer (One)
+                                            {
+                                                 0x00                                             // .
+                                            }, 
+
+                                            "CFG,CFG_FB_LIMIT", 
+                                            Buffer (One)
+                                            {
+                                                 0x02                                             // .
+                                            }, 
+
+                                            "PP,MM_EnableHEVCEncode", 
+                                            Buffer (One)
+                                            {
+                                                 0x00                                             // .
+                                            }
+                                        })
+                                    }
+                                }
+
+                                Device (HDAU)
+                                {
+                                    Name (_ADR, One)  // _ADR: Address
+                                    Method (_DSM, 4, NotSerialized)  // _DSM: Device-Specific Method
+                                    {
+                                        If ((Arg2 == Zero))
+                                        {
+                                            Return (Buffer (One)
+                                            {
+                                                 0x03                                             // .
+                                            })
+                                        }
+
+                                        Return (Package (0x08)
+                                        {
+                                            "AAPL,slot-name", 
+                                            Buffer (0x0D)
+                                            {
+                                                "Slot-2@8,0,1"
+                                            }, 
+
+                                            "model", 
+                                            Buffer (0x13)
+                                            {
+                                                "Navi 10 HDMI Audio"
+                                            }, 
+
+                                            "hda-gfx", 
+                                            Buffer (0x0A)
+                                            {
+                                                "onboard-2"
+                                            }, 
+
+                                            "layout-id", 
+                                            Buffer (0x04)
+                                            {
+                                                 0x01, 0x00, 0x00, 0x00                           // ....
+                                            }
+                                        })
+                                    }
+                                }
+                            }
                 }
 
                 Method (_PRT, 0, NotSerialized)  // _PRT: PCI Routing Table

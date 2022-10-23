@@ -51,7 +51,7 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "dGPU-Off", 0x00000000)
             }
         }
     }
-    External (_SB_.PCI0.IOU2.I2PS.PPB2.PEG0.PEGP._OFF, MethodObj)    // 0 Arguments
+    External (_SB_.PCI0.IOU1.PEG0.PEGP._OFF, MethodObj)    // 0 Arguments
 
     Device (RMD2)
     {
@@ -72,9 +72,9 @@ DefinitionBlock ("", "SSDT", 2, "DRTNIA", "dGPU-Off", 0x00000000)
         {
             If (_OSI ("Darwin"))
             {
-                If (CondRefOf (\_SB.PCI0.IOU2.I2PS.PPB2.PEG0.PEGP._OFF))
+                If (CondRefOf (\_SB.PCI0.IOU1.PEG0.PEGP._OFF))
                 {
-                    \_SB.PCI0.IOU2.I2PS.PPB2.PEG0.PEGP._OFF ()
+                    \_SB.PCI0.IOU1.PEG0.PEGP._OFF ()
                 }
             }
             Else
